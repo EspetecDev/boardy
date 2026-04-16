@@ -6,9 +6,10 @@ import type { GuideSection } from "@/types/game";
 interface GuideNavProps {
   sections: GuideSection[];
   accentColor: string;
+  inThisGuide: string;
 }
 
-export default function GuideNav({ sections, accentColor }: GuideNavProps) {
+export default function GuideNav({ sections, accentColor, inThisGuide }: GuideNavProps) {
   const [activeId, setActiveId] = useState(sections[0]?.id ?? "");
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function GuideNav({ sections, accentColor }: GuideNavProps) {
   return (
     <nav className="space-y-1">
       <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">
-        In this guide
+        {inThisGuide}
       </p>
       {sections.map((section) => {
         const isActive = activeId === section.id;

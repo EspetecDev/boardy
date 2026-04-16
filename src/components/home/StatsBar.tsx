@@ -1,11 +1,17 @@
-const STATS = [
-  { value: "6", label: "Game Guides" },
-  { value: "4", label: "Game Types" },
-  { value: "2–10", label: "Player Counts" },
-  { value: "All", label: "Skill Levels" },
-];
+import type { Dictionary } from "@/i18n/TranslationProvider";
 
-export default function StatsBar() {
+interface StatsBarProps {
+  dict: Dictionary["home"]["stats"];
+}
+
+export default function StatsBar({ dict }: StatsBarProps) {
+  const stats = [
+    { value: "6", label: dict.gameGuides },
+    { value: "4", label: dict.gameTypes },
+    { value: "2–10", label: dict.playerCounts },
+    { value: "All", label: dict.skillLevels },
+  ];
+
   return (
     <div
       className="border-y py-6"
@@ -13,7 +19,7 @@ export default function StatsBar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid grid-cols-2 gap-6 text-center sm:grid-cols-4">
-          {STATS.map((stat) => (
+          {stats.map((stat) => (
             <div key={stat.label}>
               <div
                 className="font-display text-3xl font-black sm:text-4xl"

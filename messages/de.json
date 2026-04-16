@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "browseGames": "Spiele Entdecken",
+    "boardGames": "Brettspiele",
+    "cardGames": "Kartenspiele",
+    "rpgs": "RPGs",
+    "exploreAll": "Alle Entdecken",
+    "toggleMenu": "Menü öffnen"
+  },
+  "footer": {
+    "tagline": "Schöne, praktische Anleitungen für alle Tischspiele — von der ersten Aufstellung bis zur Gewinnstrategie.",
+    "madeWith": "Gemacht mit",
+    "forTabletopLovers": "für Tischspielfans",
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "sectionGames": "Spiele",
+    "sectionGuides": "Anleitungen"
+  },
+  "home": {
+    "hero": {
+      "badge": "6 Spiele, wunderschön erklärt",
+      "headline1": "Lerne jedes Tischspiel",
+      "headline2": "in Minuten.",
+      "description": "Schöne, praktische Anleitungen für Brettspiele, Kartenspiele und RPGs. Schritt-für-Schritt-Regeln mit visuellen Diagrammen — bereit, heute Abend zu spielen.",
+      "cta": "Alle Spiele Entdecken",
+      "ctaChess": "♔ Mit Schach beginnen"
+    },
+    "stats": {
+      "gameGuides": "Spielanleitungen",
+      "gameTypes": "Spieltypen",
+      "playerCounts": "Spieleranzahl",
+      "skillLevels": "Schwierigkeitsgrade"
+    },
+    "categories": {
+      "title": "Nach Typ Durchsuchen",
+      "subtitle": "Finde das perfekte Spiel für deine Gruppe"
+    },
+    "featured": {
+      "badge": "Empfohlen",
+      "title": "Redaktionsauswahl",
+      "subtitle": "Beliebte Spiele mit detaillierten Schritt-für-Schritt-Anleitungen"
+    },
+    "howItWorks": {
+      "title": "Wie Boardy Funktioniert",
+      "step1Title": "Finde dein Spiel",
+      "step1Desc": "Suche nach Typ, Schwierigkeit oder Spieleranzahl. Suche nach jedem Spiel, das du lernen möchtest.",
+      "step2Title": "Lies die Anleitung",
+      "step2Desc": "Visuelle Diagramme, Schritt-für-Schritt-Aufbau und klare Regelerklärungen — alles an einem Ort.",
+      "step3Title": "Spiele heute Abend",
+      "step3Desc": "Mit einer Schnellreferenz und Profi-Tipps bist du in Minuten bereit, dein erstes Spiel zu spielen.",
+      "stepLabel": "Schritt"
+    },
+    "moreGames": {
+      "title": "Mehr Spiele",
+      "subtitle": "Erkunde die vollständige Anleitungsbibliothek"
+    }
+  },
+  "games": {
+    "title": "Alle Spiele",
+    "subtitle": "Anleitungen — finde das perfekte Spiel für deine Gruppe",
+    "searchPlaceholder": "Spiele suchen...",
+    "resultCount": "Spiel",
+    "resultCountPlural": "Spiele",
+    "noResultsTitle": "Keine Spiele gefunden",
+    "noResultsDesc": "Versuche, deine Filter oder deine Suche anzupassen.",
+    "readGuide": "Anleitung lesen",
+    "guide": "Anleitung →"
+  },
+  "filters": {
+    "type": "Typ",
+    "level": "Level",
+    "players": "Spieler",
+    "clearFilters": "Filter löschen"
+  },
+  "difficulty": {
+    "beginner": "Anfänger",
+    "intermediate": "Fortgeschritten",
+    "advanced": "Erfahren",
+    "expert": "Experte"
+  },
+  "categories": {
+    "board-game": {
+      "name": "Brettspiele",
+      "description": "Klassische und moderne Spiele auf einem Spielbrett"
+    },
+    "card-game": {
+      "name": "Kartenspiele",
+      "description": "Spiele rund um Kartendecks"
+    },
+    "roleplaying": {
+      "name": "RPGs",
+      "description": "Kollaboratives Geschichtenerzählen und Abenteuer"
+    },
+    "dice-game": {
+      "name": "Würfelspiele",
+      "description": "Spiele, die von Würfelwürfen und Wahrscheinlichkeit angetrieben werden"
+    },
+    "tile-game": {
+      "name": "Plättchenspiele",
+      "description": "Bauen und erkunden mit modularen Plättchen"
+    },
+    "party-game": {
+      "name": "Partyspiele",
+      "description": "Energiereicher Spaß für Gruppen"
+    },
+    "miniatures": {
+      "name": "Miniaturen",
+      "description": "Taktische Spiele mit bemalten Miniaturfiguren"
+    },
+    "puzzle": {
+      "name": "Puzzle-Spiele",
+      "description": "Kooperative Problemlösungsherausforderungen"
+    }
+  },
+  "categoryLabels": {
+    "board-game": "Brettspiel",
+    "card-game": "Kartenspiel",
+    "roleplaying": "Rollenspiel",
+    "dice-game": "Würfelspiel",
+    "tile-game": "Plättchenspiel",
+    "party-game": "Partyspiel",
+    "miniatures": "Miniaturenspiel",
+    "puzzle": "Puzzle"
+  },
+  "guide": {
+    "breadcrumbHome": "Startseite",
+    "breadcrumbGames": "Spiele",
+    "atAGlance": "Auf einen Blick",
+    "players": "Spieler",
+    "playTime": "Spielzeit",
+    "age": "Alter",
+    "year": "Jahr",
+    "objective": "Ziel",
+    "quickRulesTitle": "Schnellreferenz-Regeln",
+    "expand": "Erweitern",
+    "collapse": "Einklappen",
+    "inThisGuide": "In dieser Anleitung",
+    "whatsInTheBox": "Inhalt der Schachtel",
+    "optional": "opt.",
+    "tipsAndStrategy": "Tipps & Strategie",
+    "variantsAndExpansions": "Varianten & Erweiterungen",
+    "youMightAlsoLike": "Das könnte dir auch gefallen",
+    "browseAllGames": "Alle Spiele ansehen"
+  },
+  "tipCategories": {
+    "strategy": "Strategie",
+    "etiquette": "Etikette",
+    "beginner": "Anfänger",
+    "advanced": "Erfahren"
+  },
+  "categoryPage": {
+    "noGuidesTitle": "Noch keine Anleitungen",
+    "noGuidesDesc": "Wir arbeiten daran, Anleitungen hinzuzufügen.",
+    "browseAll": "Alle Spiele ansehen",
+    "guideCount": "Anleitung in",
+    "guideCountPlural": "Anleitungen in"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Spielanleitung existiert noch nicht. Versuche, unsere Sammlung zu durchsuchen.",
+    "cta": "Alle Spiele ansehen"
+  },
+  "utils": {
+    "min": "Min.",
+    "hours": "Std.",
+    "players": "Spieler",
+    "best": "ideal"
+  },
+  "locale": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}

@@ -9,7 +9,7 @@ export default function NotFound() {
         The game guide you&apos;re looking for doesn&apos;t exist — yet. Try browsing our collection.
       </p>
       <Link
-        href="/games"
+        href="/en/games"
         className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
         style={{ background: "var(--color-accent-primary)" }}
       >

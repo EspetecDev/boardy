@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "browseGames": "Voir les Jeux",
+    "boardGames": "Jeux de Plateau",
+    "cardGames": "Jeux de Cartes",
+    "rpgs": "JDR",
+    "exploreAll": "Tout Explorer",
+    "toggleMenu": "Ouvrir le menu"
+  },
+  "footer": {
+    "tagline": "Des guides beaux et pratiques pour tous les jeux de société — de la mise en place à la stratégie gagnante.",
+    "madeWith": "Fait avec",
+    "forTabletopLovers": "pour les amateurs de jeux de table",
+    "allRightsReserved": "Tous droits réservés.",
+    "sectionGames": "Jeux",
+    "sectionGuides": "Guides"
+  },
+  "home": {
+    "hero": {
+      "badge": "6 jeux, magnifiquement expliqués",
+      "headline1": "Apprenez n'importe quel jeu de société",
+      "headline2": "en quelques minutes.",
+      "description": "Des guides beaux et pratiques pour les jeux de plateau, les jeux de cartes et les JDR. Des règles étape par étape avec des diagrammes visuels — prêt à jouer ce soir.",
+      "cta": "Voir Tous les Jeux",
+      "ctaChess": "♔ Commencer avec les Échecs"
+    },
+    "stats": {
+      "gameGuides": "Guides de Jeux",
+      "gameTypes": "Types de Jeux",
+      "playerCounts": "Nombre de Joueurs",
+      "skillLevels": "Niveaux"
+    },
+    "categories": {
+      "title": "Parcourir par Type",
+      "subtitle": "Trouvez le jeu parfait pour votre groupe"
+    },
+    "featured": {
+      "badge": "À la Une",
+      "title": "Choix de l'Éditeur",
+      "subtitle": "Jeux populaires avec des guides détaillés étape par étape"
+    },
+    "howItWorks": {
+      "title": "Comment Fonctionne Boardy",
+      "step1Title": "Trouvez votre jeu",
+      "step1Desc": "Parcourez par type, difficulté ou nombre de joueurs. Cherchez n'importe quel jeu que vous voulez apprendre.",
+      "step2Title": "Lisez le guide",
+      "step2Desc": "Diagrammes visuels, configuration étape par étape et explications claires des règles — tout en un seul endroit.",
+      "step3Title": "Jouez ce soir",
+      "step3Desc": "Avec une référence rapide et des conseils de pros, vous serez prêt à jouer votre première partie en quelques minutes.",
+      "stepLabel": "Étape"
+    },
+    "moreGames": {
+      "title": "Plus de Jeux",
+      "subtitle": "Explorez la bibliothèque complète de guides"
+    }
+  },
+  "games": {
+    "title": "Tous les Jeux",
+    "subtitle": "guides — trouvez le jeu parfait pour votre groupe",
+    "searchPlaceholder": "Rechercher des jeux...",
+    "resultCount": "jeu",
+    "resultCountPlural": "jeux",
+    "noResultsTitle": "Aucun jeu trouvé",
+    "noResultsDesc": "Essayez d'ajuster vos filtres ou votre recherche.",
+    "readGuide": "Lire le guide",
+    "guide": "Guide →"
+  },
+  "filters": {
+    "type": "Type",
+    "level": "Niveau",
+    "players": "Joueurs",
+    "clearFilters": "Effacer les filtres"
+  },
+  "difficulty": {
+    "beginner": "Débutant",
+    "intermediate": "Intermédiaire",
+    "advanced": "Avancé",
+    "expert": "Expert"
+  },
+  "categories": {
+    "board-game": {
+      "name": "Jeux de Plateau",
+      "description": "Jeux classiques et modernes joués sur un plateau"
+    },
+    "card-game": {
+      "name": "Jeux de Cartes",
+      "description": "Jeux centrés autour de jeux de cartes"
+    },
+    "roleplaying": {
+      "name": "JDR",
+      "description": "Narration collaborative et aventure"
+    },
+    "dice-game": {
+      "name": "Jeux de Dés",
+      "description": "Jeux basés sur les lancers de dés et la probabilité"
+    },
+    "tile-game": {
+      "name": "Jeux de Tuiles",
+      "description": "Construisez et explorez avec des tuiles modulaires"
+    },
+    "party-game": {
+      "name": "Jeux de Soirée",
+      "description": "Amusement énergique pour les groupes"
+    },
+    "miniatures": {
+      "name": "Miniatures",
+      "description": "Jeux tactiques avec des figurines miniatures peintes"
+    },
+    "puzzle": {
+      "name": "Puzzles",
+      "description": "Défis coopératifs de résolution de problèmes"
+    }
+  },
+  "categoryLabels": {
+    "board-game": "Jeu de Plateau",
+    "card-game": "Jeu de Cartes",
+    "roleplaying": "Jeu de Rôle",
+    "dice-game": "Jeu de Dés",
+    "tile-game": "Jeu de Tuiles",
+    "party-game": "Jeu de Soirée",
+    "miniatures": "Jeu de Miniatures",
+    "puzzle": "Puzzle"
+  },
+  "guide": {
+    "breadcrumbHome": "Accueil",
+    "breadcrumbGames": "Jeux",
+    "atAGlance": "En un Coup d'Œil",
+    "players": "Joueurs",
+    "playTime": "Durée",
+    "age": "Âge",
+    "year": "Année",
+    "objective": "Objectif",
+    "quickRulesTitle": "Règles de Référence Rapide",
+    "expand": "Développer",
+    "collapse": "Réduire",
+    "inThisGuide": "Dans ce guide",
+    "whatsInTheBox": "Contenu de la Boîte",
+    "optional": "opt.",
+    "tipsAndStrategy": "Conseils et Stratégie",
+    "variantsAndExpansions": "Variantes et Extensions",
+    "youMightAlsoLike": "Vous pourriez aussi aimer",
+    "browseAllGames": "Voir tous les jeux"
+  },
+  "tipCategories": {
+    "strategy": "Stratégie",
+    "etiquette": "Étiquette",
+    "beginner": "Débutant",
+    "advanced": "Avancé"
+  },
+  "categoryPage": {
+    "noGuidesTitle": "Pas encore de guides",
+    "noGuidesDesc": "Nous travaillons à l'ajout de guides.",
+    "browseAll": "Voir tous les jeux",
+    "guideCount": "guide dans",
+    "guideCountPlural": "guides dans"
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "description": "Le guide du jeu que vous cherchez n'existe pas — encore. Essayez de parcourir notre collection.",
+    "cta": "Voir tous les jeux"
+  },
+  "utils": {
+    "min": "min",
+    "hours": "h",
+    "players": "joueurs",
+    "best": "idéal"
+  },
+  "locale": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}

@@ -5,10 +5,14 @@ import { Clock, Users, ChevronRight } from "lucide-react";
 import type { Game } from "@/types/game";
 import Badge from "@/components/ui/Badge";
 import { formatPlayTime, formatPlayerCount } from "@/lib/utils";
+import { localePath } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/TranslationProvider";
 
 interface GameCardProps {
   game: Game;
   variant?: "grid" | "featured";
+  lang: string;
+  dict: Pick<Dictionary["games"], "readGuide" | "guide">;
 }
 
 const categoryEmoji: Record<string, string> = {
@@ -22,18 +26,17 @@ const categoryEmoji: Record<string, string> = {
   "puzzle": "🧩",
 };
 
-export default function GameCard({ game, variant = "grid" }: GameCardProps) {
+export default function GameCard({ game, variant = "grid", lang, dict }: GameCardProps) {
   if (variant === "featured") {
     return (
       <Link
-        href={`/games/${game.slug}`}
+        href={localePath(lang, `/games/${game.slug}`)}
         className="group relative flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1"
         style={{
           borderColor: `rgba(${game.accentColorRgb}, 0.25)`,
           background: "var(--color-bg-surface)",
         }}
       >
-        {/* Gradient header */}
         <div
           className="relative flex h-44 items-end p-5"
           style={{
@@ -55,7 +58,6 @@ export default function GameCard({ game, variant = "grid" }: GameCardProps) {
           </div>
         </div>
 
-        {/* Content */}
         <div className="flex flex-1 flex-col p-5">
           <p className="mb-4 text-sm leading-relaxed text-text-secondary line-clamp-2">
             {game.tagline}
@@ -76,7 +78,7 @@ export default function GameCard({ game, variant = "grid" }: GameCardProps) {
               className="flex items-center gap-1 text-xs font-semibold transition-all group-hover:gap-2"
               style={{ color: game.accentColor }}
             >
-              Read guide <ChevronRight className="h-3.5 w-3.5" />
+              {dict.readGuide} <ChevronRight className="h-3.5 w-3.5" />
             </span>
           </div>
         </div>
@@ -86,7 +88,7 @@ export default function GameCard({ game, variant = "grid" }: GameCardProps) {
 
   return (
     <Link
-      href={`/games/${game.slug}`}
+      href={localePath(lang, `/games/${game.slug}`)}
       className="group relative flex flex-col overflow-hidden rounded-xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
       style={{
         borderColor: "var(--color-bg-border)",
@@ -101,14 +103,12 @@ export default function GameCard({ game, variant = "grid" }: GameCardProps) {
         (e.currentTarget as HTMLAnchorElement).style.boxShadow = "";
       }}
     >
-      {/* Top color band */}
       <div
         className="h-1.5 w-full"
         style={{ background: game.accentColor }}
       />
 
       <div className="p-4">
-        {/* Icon + title row */}
         <div className="mb-3 flex items-start justify-between">
           <div
             className="flex h-10 w-10 items-center justify-center rounded-xl text-xl"
@@ -124,7 +124,6 @@ export default function GameCard({ game, variant = "grid" }: GameCardProps) {
         <h3 className="mb-1 font-display text-lg font-bold text-text-primary">{game.name}</h3>
         <p className="mb-3 text-xs leading-relaxed text-text-secondary line-clamp-2">{game.tagline}</p>
 
-        {/* Stats */}
         <div className="flex items-center gap-3 border-t pt-3" style={{ borderColor: "var(--color-bg-border)" }}>
           <span className="flex items-center gap-1 text-xs text-text-muted">
             <Users className="h-3 w-3" />
@@ -137,7 +136,7 @@ export default function GameCard({ game, variant = "grid" }: GameCardProps) {
             {formatPlayTime(game.playTime.min, game.playTime.max)}
           </span>
           <span className="ml-auto text-xs font-medium transition-colors" style={{ color: game.accentColor }}>
-            Guide →
+            {dict.guide}
           </span>
         </div>
       </div>

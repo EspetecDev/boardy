@@ -4,7 +4,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
 import { Search, X } from "lucide-react";
 
-export default function SearchInput() {
+interface SearchInputProps {
+  placeholder: string;
+}
+
+export default function SearchInput({ placeholder }: SearchInputProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [value, setValue] = useState(searchParams.get("q") ?? "");
@@ -36,7 +40,7 @@ export default function SearchInput() {
       <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />
       <input
         type="text"
-        placeholder="Search games..."
+        placeholder={placeholder}
         value={value}
         onChange={handleChange}
         className="w-full rounded-xl border py-2.5 pl-9 pr-9 text-sm text-text-primary placeholder:text-text-muted focus:outline-none"

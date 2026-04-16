@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "browseGames": "Browse Games",
+    "boardGames": "Board Games",
+    "cardGames": "Card Games",
+    "rpgs": "RPGs",
+    "exploreAll": "Explore All",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "tagline": "Beautiful, practical guides for every tabletop game — from first setup to winning strategy.",
+    "madeWith": "Made with",
+    "forTabletopLovers": "for tabletop lovers",
+    "allRightsReserved": "All rights reserved.",
+    "sectionGames": "Games",
+    "sectionGuides": "Guides"
+  },
+  "home": {
+    "hero": {
+      "badge": "6 games, beautifully explained",
+      "headline1": "Learn any tabletop game",
+      "headline2": "in minutes.",
+      "description": "Beautiful, practical guides for board games, card games, and RPGs. Step-by-step rules with visual diagrams — ready to play tonight.",
+      "cta": "Browse All Games",
+      "ctaChess": "♔ Start with Chess"
+    },
+    "stats": {
+      "gameGuides": "Game Guides",
+      "gameTypes": "Game Types",
+      "playerCounts": "Player Counts",
+      "skillLevels": "Skill Levels"
+    },
+    "categories": {
+      "title": "Browse by Type",
+      "subtitle": "Find the perfect game for your group"
+    },
+    "featured": {
+      "badge": "Featured",
+      "title": "Editor's Picks",
+      "subtitle": "Popular games with detailed step-by-step guides"
+    },
+    "howItWorks": {
+      "title": "How Boardy Works",
+      "step1Title": "Find your game",
+      "step1Desc": "Browse by type, difficulty, or player count. Search for any game you want to learn.",
+      "step2Title": "Read the guide",
+      "step2Desc": "Visual diagrams, step-by-step setup, and clear rule explanations — all in one place.",
+      "step3Title": "Play tonight",
+      "step3Desc": "With a quick reference and pro tips, you'll be ready to play your first game in minutes.",
+      "stepLabel": "Step"
+    },
+    "moreGames": {
+      "title": "More Games",
+      "subtitle": "Explore the full guide library"
+    }
+  },
+  "games": {
+    "title": "All Games",
+    "subtitle": "guides — find the perfect game for your group",
+    "searchPlaceholder": "Search games...",
+    "resultCount": "game",
+    "resultCountPlural": "games",
+    "noResultsTitle": "No games found",
+    "noResultsDesc": "Try adjusting your filters or search query.",
+    "readGuide": "Read guide",
+    "guide": "Guide →"
+  },
+  "filters": {
+    "type": "Type",
+    "level": "Level",
+    "players": "Players",
+    "clearFilters": "Clear filters"
+  },
+  "difficulty": {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "expert": "Expert"
+  },
+  "categories": {
+    "board-game": {
+      "name": "Board Games",
+      "description": "Classic and modern games played on a board"
+    },
+    "card-game": {
+      "name": "Card Games",
+      "description": "Games centered around decks of cards"
+    },
+    "roleplaying": {
+      "name": "RPGs",
+      "description": "Collaborative storytelling and adventure"
+    },
+    "dice-game": {
+      "name": "Dice Games",
+      "description": "Games driven by dice rolls and probability"
+    },
+    "tile-game": {
+      "name": "Tile Games",
+      "description": "Build and explore with modular tiles"
+    },
+    "party-game": {
+      "name": "Party Games",
+      "description": "High-energy fun for groups"
+    },
+    "miniatures": {
+      "name": "Miniatures",
+      "description": "Tactical games with painted miniature figures"
+    },
+    "puzzle": {
+      "name": "Puzzle Games",
+      "description": "Cooperative problem-solving challenges"
+    }
+  },
+  "categoryLabels": {
+    "board-game": "Board Game",
+    "card-game": "Card Game",
+    "roleplaying": "Roleplaying Game",
+    "dice-game": "Dice Game",
+    "tile-game": "Tile Game",
+    "party-game": "Party Game",
+    "miniatures": "Miniatures Game",
+    "puzzle": "Puzzle Game"
+  },
+  "guide": {
+    "breadcrumbHome": "Home",
+    "breadcrumbGames": "Games",
+    "atAGlance": "At a Glance",
+    "players": "Players",
+    "playTime": "Play Time",
+    "age": "Age",
+    "year": "Year",
+    "objective": "Objective",
+    "quickRulesTitle": "Quick Reference Rules",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "inThisGuide": "In this guide",
+    "whatsInTheBox": "What's in the Box",
+    "optional": "opt.",
+    "tipsAndStrategy": "Tips & Strategy",
+    "variantsAndExpansions": "Variants & Expansions",
+    "youMightAlsoLike": "You might also like",
+    "browseAllGames": "Browse all games"
+  },
+  "tipCategories": {
+    "strategy": "Strategy",
+    "etiquette": "Etiquette",
+    "beginner": "Beginner",
+    "advanced": "Advanced"
+  },
+  "categoryPage": {
+    "noGuidesTitle": "No guides yet",
+    "noGuidesDesc": "We're working on adding guides.",
+    "browseAll": "Browse all games",
+    "guideCount": "guide in",
+    "guideCountPlural": "guides in"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The game guide you're looking for doesn't exist — yet. Try browsing our collection.",
+    "cta": "Browse all games"
+  },
+  "utils": {
+    "min": "min",
+    "hours": "h",
+    "players": "players",
+    "best": "best"
+  },
+  "locale": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}

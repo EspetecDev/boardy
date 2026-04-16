@@ -10,6 +10,8 @@ interface ComponentsListProps {
   components: GameComponent[];
   accentColor: string;
   accentColorRgb: string;
+  title: string;
+  optionalLabel: string;
 }
 
 const iconMap: Record<string, React.ElementType> = {
@@ -19,10 +21,10 @@ const iconMap: Record<string, React.ElementType> = {
   Move, Package, EyeOff
 };
 
-export default function ComponentsList({ components, accentColor, accentColorRgb }: ComponentsListProps) {
+export default function ComponentsList({ components, accentColor, accentColorRgb, title, optionalLabel }: ComponentsListProps) {
   return (
     <div>
-      <h2 className="mb-6 font-display text-2xl font-bold text-text-primary">What&apos;s in the Box</h2>
+      <h2 className="mb-6 font-display text-2xl font-bold text-text-primary">{title}</h2>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {components.map((component) => {
           const Icon = component.icon ? (iconMap[component.icon] ?? Layers) : Layers;
@@ -42,7 +44,7 @@ export default function ComponentsList({ components, accentColor, accentColorRgb
                 className="mb-1 font-mono text-xl font-bold"
                 style={{ color: accentColor }}
               >
-                {component.quantity > 0 ? `×${component.quantity}` : "opt."}
+                {component.quantity > 0 ? `×${component.quantity}` : optionalLabel}
               </span>
               <span className="text-sm font-medium text-text-primary">{component.name}</span>
               {component.description && (
