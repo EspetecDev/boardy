@@ -7,9 +7,11 @@ import { getFeaturedGames, getAllGames } from "@/lib/games";
 import { categories } from "@/data/categories";
 import GameCard from "@/components/games/GameCard";
 
-export default function HomePage() {
-  const featuredGames = getFeaturedGames();
-  const allGames = getAllGames();
+export default async function HomePage() {
+  const [featuredGames, allGames] = await Promise.all([
+    getFeaturedGames(),
+    getAllGames(),
+  ]);
   const recentGames = allGames.filter((g) => !g.featured).slice(0, 3);
 
   return (

@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   description: "Browse all tabletop game guides — filter by type, difficulty, and player count.",
 };
 
-export default function GamesPage() {
-  const games = getAllGames();
+export default async function GamesPage() {
+  const games = await getAllGames();
 
   return (
     <>

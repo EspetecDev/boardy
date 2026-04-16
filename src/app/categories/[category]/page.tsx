@@ -29,7 +29,7 @@ export default async function CategoryPage({ params }: Props) {
   const cat = categories.find((c) => c.id === category);
   if (!cat) notFound();
 
-  const games = getGamesByCategory(category as GameCategory);
+  const games = await getGamesByCategory(category as GameCategory);
 
   return (
     <>

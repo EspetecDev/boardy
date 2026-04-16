@@ -1,33 +1,86 @@
 import type { Game, GameCategory, Difficulty } from "@/types/game";
-import { allGames } from "@/data/index";
+import { allGames as jsonGames } from "@/data/index";
+import { supabase, rowToGame, type GameRow } from "./supabase";
 
-export function getAllGames(): Game[] {
-  return allGames;
+// ── Source selection ─────────────────────────────────────────────────────────
+// Uses Supabase when env vars are present; falls back to bundled JSON for
+// local dev or when the DB isn't configured yet.
+
+const useDb = !!supabase;
+
+// ── Data access ──────────────────────────────────────────────────────────────
+
+export async function getAllGames(): Promise<Game[]> {
+  if (!useDb) return jsonGames;
+  const { data, error } = await supabase!
+    .from("games")
+    .select("*")
+    .order("name");
+  if (error) throw new Error(`getAllGames: ${error.message}`);
+  return (data as GameRow[]).map(rowToGame);
 }
 
-export function getGame(slug: string): Game | undefined {
-  return allGames.find((g) => g.slug === slug);
+export async function getGame(slug: string): Promise<Game | undefined> {
+  if (!useDb) return jsonGames.find((g) => g.slug === slug);
+  const { data, error } = await supabase!
+    .from("games")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+  if (error?.code === "PGRST116") return undefined; // not found
+  if (error) throw new Error(`getGame(${slug}): ${error.message}`);
+  return rowToGame(data as GameRow);
 }
 
-export function getFeaturedGames(): Game[] {
-  return allGames.filter((g) => g.featured);
+export async function getFeaturedGames(): Promise<Game[]> {
+  if (!useDb) return jsonGames.filter((g) => g.featured);
+  const { data, error } = await supabase!
+    .from("games")
+    .select("*")
+    .eq("featured", true)
+    .order("name");
+  if (error) throw new Error(`getFeaturedGames: ${error.message}`);
+  return (data as GameRow[]).map(rowToGame);
 }
 
-export function getGamesByCategory(category: GameCategory): Game[] {
-  return allGames.filter((g) => g.category === category);
+export async function getGamesByCategory(category: GameCategory): Promise<Game[]> {
+  if (!useDb) return jsonGames.filter((g) => g.category === category);
+  const { data, error } = await supabase!
+    .from("games")
+    .select("*")
+    .eq("category", category)
+    .order("name");
+  if (error) throw new Error(`getGamesByCategory(${category}): ${error.message}`);
+  return (data as GameRow[]).map(rowToGame);
 }
 
-export function getRelatedGames(game: Game): Game[] {
+export async function getRelatedGames(game: Game): Promise<Game[]> {
   if (!game.relatedGames?.length) return [];
-  return game.relatedGames
-    .map((slug) => allGames.find((g) => g.slug === slug))
-    .filter((g): g is Game => g !== undefined)
-    .slice(0, 3);
+  if (!useDb) {
+    return game.relatedGames
+      .map((slug) => jsonGames.find((g) => g.slug === slug))
+      .filter((g): g is Game => g !== undefined)
+      .slice(0, 3);
+  }
+  const { data, error } = await supabase!
+    .from("games")
+    .select("*")
+    .in("slug", game.relatedGames)
+    .limit(3);
+  if (error) throw new Error(`getRelatedGames: ${error.message}`);
+  return (data as GameRow[]).map(rowToGame);
 }
 
-export function getAllSlugs(): string[] {
-  return allGames.map((g) => g.slug);
+export async function getAllSlugs(): Promise<string[]> {
+  if (!useDb) return jsonGames.map((g) => g.slug);
+  const { data, error } = await supabase!
+    .from("games")
+    .select("slug");
+  if (error) throw new Error(`getAllSlugs: ${error.message}`);
+  return (data as { slug: string }[]).map((r) => r.slug);
 }
+
+// ── Client-side filter (pure, synchronous — operates on already-fetched data) ─
 
 export interface FilterState {
   search: string;
@@ -42,11 +95,9 @@ export function filterGames(games: Game[], filters: FilterState): Game[] {
   if (filters.category) {
     result = result.filter((g) => g.category === filters.category);
   }
-
   if (filters.difficulty) {
     result = result.filter((g) => g.difficulty === filters.difficulty);
   }
-
   if (filters.players) {
     const count = parseInt(filters.players);
     if (!isNaN(count)) {
@@ -55,7 +106,6 @@ export function filterGames(games: Game[], filters: FilterState): Game[] {
       );
     }
   }
-
   if (filters.search) {
     const query = filters.search.toLowerCase();
     result = result.filter(
@@ -69,6 +119,8 @@ export function filterGames(games: Game[], filters: FilterState): Game[] {
 
   return result;
 }
+
+// ── Constants ─────────────────────────────────────────────────────────────────
 
 export const difficultyOrder: Difficulty[] = [
   "beginner",

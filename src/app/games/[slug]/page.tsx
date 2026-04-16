@@ -15,12 +15,13 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const game = getGame(slug);
+  const game = await getGame(slug);
   if (!game) return {};
   return {
     title: `How to Play ${game.name} | Boardy`,
@@ -36,10 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function GameGuidePage({ params }: Props) {
   const { slug } = await params;
-  const game = getGame(slug);
+  const [game, relatedGames] = await Promise.all([
+    getGame(slug),
+    getGame(slug).then((g) => (g ? getRelatedGames(g) : [])),
+  ]);
   if (!game) notFound();
-
-  const relatedGames = getRelatedGames(game);
 
   return (
     <div style={{ "--game-accent": game.accentColor, "--game-accent-rgb": game.accentColorRgb } as React.CSSProperties}>
