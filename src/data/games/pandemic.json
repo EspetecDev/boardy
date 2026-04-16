@@ -1,0 +1,202 @@
+{
+  "id": "pandemic",
+  "slug": "pandemic",
+  "name": "Pandemic",
+  "tagline": "Save the world together before diseases wipe out humanity",
+  "description": "Pandemic is a fully cooperative board game where 2–4 players work as disease-control specialists to cure four deadly diseases spreading across the globe. Every decision counts — time is always running out.",
+  "category": "board-game",
+  "subcategory": "Cooperative",
+  "difficulty": "intermediate",
+  "playerCount": { "min": 2, "max": 4, "ideal": 3 },
+  "playTime": { "min": 45, "max": 75 },
+  "ageRange": { "min": 8 },
+  "year": 2008,
+  "designer": "Matt Leacock",
+  "publisher": "Z-Man Games",
+  "tags": ["cooperative", "strategy", "thematic", "family", "modern"],
+  "accentColor": "#4cc9f0",
+  "accentColorRgb": "76, 201, 240",
+  "featured": true,
+  "guide": {
+    "objective": "Discover cures for all four diseases before time runs out — outbreaks occur, disease spreads, and the player deck runs out.",
+    "quickRules": [
+      "All players win or lose together — full cooperation required",
+      "On your turn: take 4 actions, draw 2 player cards, infect cities",
+      "Cure a disease by discarding 5 cards of the same color at a Research Station",
+      "Outbreaks occur when a city with 3 cubes gets infected again",
+      "Lose if: 8 outbreaks occur, any disease cubes run out, or the player deck is exhausted"
+    ],
+    "sections": [
+      {
+        "id": "setup",
+        "title": "Setup",
+        "icon": "Map",
+        "steps": [
+          {
+            "number": 1,
+            "title": "Place the board",
+            "description": "Unfold the world map board and place it in reach of all players."
+          },
+          {
+            "number": 2,
+            "title": "Assign roles",
+            "description": "Randomly deal one Role card to each player. Roles have unique special abilities that change how you play. Keep your role visible.",
+            "tip": "With 2 players, try Medic + Scientist for a strong starting combination."
+          },
+          {
+            "number": 3,
+            "title": "Place research station & pawns",
+            "description": "Place a Research Station on Atlanta (CDC home). Place each player's pawn on Atlanta as well."
+          },
+          {
+            "number": 4,
+            "title": "Infect starting cities",
+            "description": "Shuffle the Infection deck. Flip 3 cards — place 3 disease cubes on each city. Flip 3 more — place 2 cubes. Flip 3 more — place 1 cube. These 9 cities are your starting hotspots."
+          },
+          {
+            "number": 5,
+            "title": "Prepare the player deck",
+            "description": "Separate Epidemic cards (4 for Standard, 5 for Heroic difficulty), shuffle them into equal-sized groups of the player deck, then stack the groups. Deal 2–4 cards to each player based on player count."
+          }
+        ]
+      },
+      {
+        "id": "roles",
+        "title": "Player Roles",
+        "icon": "Users",
+        "rules": [
+          {
+            "id": "medic",
+            "title": "Medic",
+            "description": "Remove ALL disease cubes of one color when treating (instead of 1). Automatically remove cubes of cured diseases for free when entering a city.",
+            "important": true
+          },
+          {
+            "id": "scientist",
+            "title": "Scientist",
+            "description": "Needs only 4 cards (instead of 5) of the same color to discover a cure. Massively speeds up curing."
+          },
+          {
+            "id": "researcher",
+            "title": "Researcher",
+            "description": "Can give any City card to another player in the same city (not just the one matching the city you're in). Enables much better card sharing."
+          },
+          {
+            "id": "operations-expert",
+            "title": "Operations Expert",
+            "description": "Can build a Research Station in any city without discarding a card. Can also move from a Research Station to any city by discarding a City card."
+          },
+          {
+            "id": "quarantine-specialist",
+            "title": "Quarantine Specialist",
+            "description": "Prevents disease cube placement in the city they occupy and all adjacent cities. The single strongest defensive role."
+          }
+        ]
+      },
+      {
+        "id": "turn-structure",
+        "title": "Taking Your Turn",
+        "icon": "RefreshCw",
+        "steps": [
+          {
+            "number": 1,
+            "title": "Take 4 Actions",
+            "description": "Each turn you get exactly 4 actions. Actions include: Drive/Ferry (move to adjacent city), Direct Flight (discard city card to fly anywhere), Charter Flight (discard your current city card to fly anywhere), Shuttle Flight (move between Research Stations), Build Research Station, Treat Disease (remove 1 cube), Share Knowledge (give/take a City card), Discover a Cure.",
+            "tip": "Coordinate with teammates before acting — every action counts. Talk through your turn together."
+          },
+          {
+            "number": 2,
+            "title": "Draw 2 Player Cards",
+            "description": "Draw the top 2 cards from the player deck. If you draw an Epidemic card, resolve it immediately: Increase the Infection Rate, Infect the bottom city of the infection deck with 3 cubes, then shuffle the discard pile and place on top of the infection deck."
+          },
+          {
+            "number": 3,
+            "title": "Infect Cities",
+            "description": "Draw Infection cards equal to the current Infection Rate (starts at 2). Place 1 cube of the matching color on each revealed city. If a city already has 3 cubes of that color, an Outbreak occurs.",
+            "tip": "Track which cities have been discarded — they'll appear again after an Epidemic."
+          }
+        ]
+      },
+      {
+        "id": "win-lose",
+        "title": "Winning & Losing",
+        "icon": "Trophy",
+        "rules": [
+          {
+            "id": "win",
+            "title": "Win Condition",
+            "description": "Discover cures for all 4 diseases. You win instantly the moment the 4th cure is found — even if cubes remain on the board.",
+            "important": true
+          },
+          {
+            "id": "outbreaks",
+            "title": "Lose: 8 Outbreaks",
+            "description": "When a city with 3 cubes of one color gets infected again, an outbreak occurs — infect all adjacent cities. Track outbreaks on the Outbreak Meter. 8 outbreaks = game over.",
+            "important": true
+          },
+          {
+            "id": "cubes-run-out",
+            "title": "Lose: Cube Shortage",
+            "description": "If any color of disease cube runs out and you need to place one, you lose immediately. There are only 24 cubes per color."
+          },
+          {
+            "id": "deck-exhausted",
+            "title": "Lose: Player Deck Empty",
+            "description": "If a player needs to draw a card but the player deck is empty, the team loses. This is the 'timer' mechanic — you can't take too long."
+          }
+        ]
+      }
+    ]
+  },
+  "components": [
+    { "name": "Game Board", "quantity": 1, "description": "World map with 48 cities", "icon": "Map" },
+    { "name": "Disease Cubes", "quantity": 96, "description": "24 each in blue, yellow, black, and red", "icon": "Circle" },
+    { "name": "Research Stations", "quantity": 6, "icon": "Building2" },
+    { "name": "Player Cards", "quantity": 48, "description": "City cards + Event cards", "icon": "Layers" },
+    { "name": "Infection Cards", "quantity": 48, "description": "One per city on the board", "icon": "AlertTriangle" },
+    { "name": "Epidemic Cards", "quantity": 6, "icon": "AlertCircle" },
+    { "name": "Role Cards", "quantity": 7, "icon": "User" },
+    { "name": "Player Pawns", "quantity": 7, "description": "One per role, in matching color", "icon": "Users" },
+    { "name": "Cure Markers", "quantity": 4, "description": "Track discovered cures per disease color", "icon": "CheckCircle" }
+  ],
+  "variants": [
+    {
+      "name": "Introductory (4 Epidemic Cards)",
+      "description": "Use only 4 Epidemic cards instead of 5 for a more forgiving first game. Great for new players learning the mechanics.",
+      "difficulty": "beginner"
+    },
+    {
+      "name": "Heroic (6 Epidemic Cards)",
+      "description": "Use 6 Epidemic cards for an extremely challenging experience. Even veteran players will struggle.",
+      "difficulty": "expert"
+    },
+    {
+      "name": "Pandemic Legacy: Season 1",
+      "description": "A campaign version where each session permanently changes the game — cities can be quarantined, characters can be killed, and the board evolves. One of the highest-rated board games ever made.",
+      "difficulty": "advanced"
+    }
+  ],
+  "tips": [
+    {
+      "category": "strategy",
+      "title": "Cure diseases first, eradicate second",
+      "content": "Curing a disease (5 same-color cards at a Research Station) wins the game. Eradication (removing all cubes) is nice but rarely the priority. Focus on getting those 5 cards together."
+    },
+    {
+      "category": "strategy",
+      "title": "Watch the infection discard pile",
+      "content": "After an Epidemic, the discard pile is reshuffled on top — those cities will be infected again soon. Prioritize clearing cubes from recently-discarded cities."
+    },
+    {
+      "category": "beginner",
+      "title": "Talk constantly",
+      "content": "Pandemic is a cooperative game — share your hand, discuss plans, and ask for advice. Some groups make the mistake of playing too quietly. There's no 'leader's privilege' rule; everyone should contribute."
+    },
+    {
+      "category": "etiquette",
+      "title": "Avoid the Alpha Player problem",
+      "content": "Don't let one player dominate all decisions. Pandemic is most fun when everyone participates. If you know the strategy well, guide rather than dictate."
+    }
+  ],
+  "relatedGames": ["dungeons-and-dragons", "catan"]
+}

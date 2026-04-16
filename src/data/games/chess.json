@@ -1,0 +1,219 @@
+{
+  "id": "chess",
+  "slug": "chess",
+  "name": "Chess",
+  "tagline": "The ancient game of strategy and tactics",
+  "description": "Chess is a two-player abstract strategy game played on an 8×8 board. Each player controls 16 pieces with unique movement rules, aiming to checkmate the opponent's king. Originating over 1,500 years ago, chess remains one of the world's most studied and played games.",
+  "category": "board-game",
+  "subcategory": "Abstract Strategy",
+  "difficulty": "intermediate",
+  "playerCount": { "min": 2, "max": 2, "ideal": 2 },
+  "playTime": { "min": 10, "max": 120 },
+  "ageRange": { "min": 6 },
+  "year": 1475,
+  "tags": ["strategy", "abstract", "two-player", "classic", "competitive"],
+  "accentColor": "#a78bfa",
+  "accentColorRgb": "167, 139, 250",
+  "featured": true,
+  "guide": {
+    "objective": "Checkmate your opponent's king — place it under attack with no legal escape.",
+    "quickRules": [
+      "Each player starts with 16 pieces: 1 king, 1 queen, 2 rooks, 2 bishops, 2 knights, 8 pawns",
+      "White moves first, then players alternate",
+      "A piece is captured by moving onto its square",
+      "Check means the king is under attack — you must resolve it immediately",
+      "Checkmate ends the game; stalemate is a draw"
+    ],
+    "sections": [
+      {
+        "id": "setup",
+        "title": "Setting Up the Board",
+        "icon": "LayoutGrid",
+        "content": "Place the board so a white square is in the bottom-right corner. Set up pieces in the back two rows for each player.",
+        "diagram": {
+          "type": "board",
+          "component": "ChessBoard",
+          "caption": "Initial chess position — white pieces on rows 1–2, black on rows 7–8"
+        },
+        "steps": [
+          {
+            "number": 1,
+            "title": "Orient the board",
+            "description": "Position the board so the bottom-right corner square is white (light-colored). Each player should have a white square in their right corner."
+          },
+          {
+            "number": 2,
+            "title": "Place the rooks",
+            "description": "Place a rook (castle tower) on each corner square — a1, h1 for white; a8, h8 for black."
+          },
+          {
+            "number": 3,
+            "title": "Place the knights",
+            "description": "Place knights (horse heads) next to each rook: b1, g1 for white; b8, g8 for black."
+          },
+          {
+            "number": 4,
+            "title": "Place the bishops",
+            "description": "Place bishops next to each knight: c1, f1 for white; c8, f8 for black."
+          },
+          {
+            "number": 5,
+            "title": "Place queen and king",
+            "description": "The queen goes on her own color (white queen on d1 light, black queen on d8 dark). The king takes the remaining center square.",
+            "tip": "Remember: 'Queen on her color' — white queen on a white square, black queen on a dark square."
+          },
+          {
+            "number": 6,
+            "title": "Place the pawns",
+            "description": "Fill the entire second row for each player with pawns: row 2 for white, row 7 for black."
+          }
+        ]
+      },
+      {
+        "id": "piece-movements",
+        "title": "How Pieces Move",
+        "icon": "Move",
+        "content": "Each piece type has unique movement rules. Understanding these is the foundation of chess.",
+        "rules": [
+          {
+            "id": "king",
+            "title": "King",
+            "description": "Moves one square in any direction — up, down, left, right, or diagonal. The king can never move into check.",
+            "example": "From e4, the king can move to d3, d4, d5, e3, e5, f3, f4, or f5.",
+            "important": true
+          },
+          {
+            "id": "queen",
+            "title": "Queen",
+            "description": "Moves any number of squares in any direction — the most powerful piece. Cannot jump over other pieces.",
+            "example": "From d4, the queen controls 27 squares across all ranks, files, and diagonals."
+          },
+          {
+            "id": "rook",
+            "title": "Rook",
+            "description": "Moves any number of squares horizontally or vertically. Cannot jump over other pieces.",
+            "example": "A rook in the center controls an entire row and column — up to 14 squares."
+          },
+          {
+            "id": "bishop",
+            "title": "Bishop",
+            "description": "Moves any number of squares diagonally. Each bishop stays on its original color for the entire game.",
+            "example": "A bishop on a white square always moves to another white square."
+          },
+          {
+            "id": "knight",
+            "title": "Knight",
+            "description": "Moves in an 'L' shape: two squares in one direction, then one square perpendicular. The only piece that can jump over other pieces.",
+            "example": "From e4, a knight can jump to d2, f2, c3, g3, c5, g5, d6, or f6.",
+            "important": true
+          },
+          {
+            "id": "pawn",
+            "title": "Pawn",
+            "description": "Moves forward one square (or two squares from its starting position). Captures diagonally forward one square.",
+            "example": "A pawn on e2 can move to e3 or e4 on its first move. It captures on d3 or f3."
+          }
+        ]
+      },
+      {
+        "id": "special-moves",
+        "title": "Special Moves",
+        "icon": "Sparkles",
+        "rules": [
+          {
+            "id": "castling",
+            "title": "Castling",
+            "description": "A special king-rook move: the king moves two squares toward a rook, and the rook jumps to the other side of the king. Only allowed if neither piece has moved and no pieces are between them.",
+            "important": true
+          },
+          {
+            "id": "en-passant",
+            "title": "En Passant",
+            "description": "When a pawn advances two squares from its starting position past an opposing pawn, the opponent may capture it as if it had only moved one square. Must be done immediately on the next move.",
+            "important": true
+          },
+          {
+            "id": "promotion",
+            "title": "Pawn Promotion",
+            "description": "When a pawn reaches the opposite end of the board, it must be promoted to any other piece (queen, rook, bishop, or knight). Promoting to a queen is almost always best."
+          }
+        ]
+      },
+      {
+        "id": "check-checkmate",
+        "title": "Check, Checkmate & Draw",
+        "icon": "Crown",
+        "rules": [
+          {
+            "id": "check",
+            "title": "Check",
+            "description": "When a king is under attack, it is 'in check.' The player must resolve check immediately — by moving the king, blocking the attack, or capturing the attacking piece.",
+            "important": true
+          },
+          {
+            "id": "checkmate",
+            "title": "Checkmate",
+            "description": "Checkmate occurs when a king is in check with no legal moves to escape. The game ends immediately — the player whose king is checkmated loses.",
+            "important": true
+          },
+          {
+            "id": "stalemate",
+            "title": "Stalemate",
+            "description": "If a player has no legal moves but their king is NOT in check, the game is a draw by stalemate."
+          },
+          {
+            "id": "draws",
+            "title": "Other Draws",
+            "description": "A game can also end in a draw by mutual agreement, threefold repetition (same position three times), the 50-move rule (50 moves with no pawn move or capture), or insufficient material."
+          }
+        ]
+      }
+    ]
+  },
+  "components": [
+    { "name": "Game Board", "quantity": 1, "description": "8×8 grid with alternating light and dark squares", "icon": "LayoutGrid" },
+    { "name": "White Pieces", "quantity": 16, "description": "King, queen, 2 rooks, 2 bishops, 2 knights, 8 pawns", "icon": "Crown" },
+    { "name": "Black Pieces", "quantity": 16, "description": "King, queen, 2 rooks, 2 bishops, 2 knights, 8 pawns", "icon": "Crown" }
+  ],
+  "variants": [
+    {
+      "name": "Chess960 (Fischer Random)",
+      "description": "The back row pieces are randomly arranged at the start (with some constraints), eliminating opening memorization and emphasizing understanding.",
+      "difficulty": "intermediate"
+    },
+    {
+      "name": "Bullet / Blitz Chess",
+      "description": "Timed variants played with a clock — bullet (1–2 min), blitz (3–5 min). Rewards quick pattern recognition over deep calculation.",
+      "difficulty": "intermediate"
+    },
+    {
+      "name": "Four-Player Chess",
+      "description": "A board variant for four players using a larger board and team or free-for-all rules.",
+      "difficulty": "intermediate",
+      "playerCount": { "min": 4, "max": 4 }
+    }
+  ],
+  "tips": [
+    {
+      "category": "beginner",
+      "title": "Control the center",
+      "content": "Place your pawns and pieces to control the four central squares (d4, d5, e4, e5). Pieces in the center have more power and mobility."
+    },
+    {
+      "category": "beginner",
+      "title": "Develop your pieces early",
+      "content": "Move your knights and bishops out in the opening before launching attacks. Don't move the same piece twice in the opening unless you must."
+    },
+    {
+      "category": "strategy",
+      "title": "Castle early for king safety",
+      "content": "Castling tucks your king behind a wall of pawns and activates your rook. Try to castle within the first 10 moves."
+    },
+    {
+      "category": "advanced",
+      "title": "Think in tempos",
+      "content": "Each move is a 'tempo.' Avoid wasting tempos — every move should improve your position. Moving a piece twice in the opening loses tempo."
+    }
+  ],
+  "relatedGames": ["pandemic", "catan"]
+}

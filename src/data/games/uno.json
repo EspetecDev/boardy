@@ -1,0 +1,185 @@
+{
+  "id": "uno",
+  "slug": "uno",
+  "name": "Uno",
+  "tagline": "Race to empty your hand before anyone else",
+  "description": "Uno is a fast-paced card game where players race to be the first to empty their hand. Match cards by color or number, use action cards to shake up the game, and never forget to shout 'Uno!' when you're down to one card.",
+  "category": "card-game",
+  "subcategory": "Hand Management",
+  "difficulty": "beginner",
+  "playerCount": { "min": 2, "max": 10, "ideal": 5 },
+  "playTime": { "min": 15, "max": 30 },
+  "ageRange": { "min": 7 },
+  "year": 1971,
+  "designer": "Merle Robbins",
+  "tags": ["family", "fast-paced", "card-matching", "beginner", "party"],
+  "accentColor": "#ef476f",
+  "accentColorRgb": "239, 71, 111",
+  "featured": true,
+  "guide": {
+    "objective": "Be the first player to play all cards from your hand, scoring points based on opponents' remaining cards.",
+    "quickRules": [
+      "Match the top card of the discard pile by color, number, or symbol",
+      "Draw a card if you cannot play",
+      "Shout 'Uno!' when you have one card left — or draw 2 as a penalty",
+      "Action cards: Skip, Reverse, Draw Two, Wild, Wild Draw Four",
+      "First to 500 points across multiple rounds wins"
+    ],
+    "sections": [
+      {
+        "id": "setup",
+        "title": "Setup",
+        "icon": "Layers",
+        "diagram": {
+          "type": "card-layout",
+          "component": "CardLayout",
+          "props": { "variant": "uno-setup" },
+          "caption": "Uno card types and colors"
+        },
+        "steps": [
+          {
+            "number": 1,
+            "title": "Shuffle the deck",
+            "description": "Shuffle all 108 cards together thoroughly."
+          },
+          {
+            "number": 2,
+            "title": "Deal 7 cards each",
+            "description": "Deal 7 cards face-down to each player. Players may look at their own cards."
+          },
+          {
+            "number": 3,
+            "title": "Start the discard pile",
+            "description": "Flip the top card of the remaining draw pile face-up to start the discard pile. If it's a Wild Draw Four, shuffle it back and draw again.",
+            "tip": "If the first card is an action card (Skip, Reverse, Draw Two, Wild), its effect applies to the first player's turn."
+          },
+          {
+            "number": 4,
+            "title": "Determine first player",
+            "description": "The player to the left of the dealer goes first. Play proceeds clockwise unless reversed."
+          }
+        ]
+      },
+      {
+        "id": "gameplay",
+        "title": "Playing Cards",
+        "icon": "Play",
+        "steps": [
+          {
+            "number": 1,
+            "title": "Match by color or number",
+            "description": "On your turn, play a card that matches the top discard card by color (red, blue, green, yellow) OR by number/symbol."
+          },
+          {
+            "number": 2,
+            "title": "Draw if you cannot play",
+            "description": "If you have no matching card, draw one card from the draw pile. If that card is playable, you may play it immediately. Otherwise, your turn ends."
+          },
+          {
+            "number": 3,
+            "title": "Wild cards are always playable",
+            "description": "Wild cards can be played on any card. When you play a Wild, you declare the new color for play to continue."
+          },
+          {
+            "number": 4,
+            "title": "Shout Uno!",
+            "description": "When you play your second-to-last card, you must shout 'Uno!' If another player catches you not saying it before they draw or play, you must draw 2 cards as a penalty.",
+            "tip": "You don't have to shout Uno if you go directly from 2 cards to 0 in one turn — though some house rules differ."
+          }
+        ]
+      },
+      {
+        "id": "action-cards",
+        "title": "Action Cards",
+        "icon": "Zap",
+        "rules": [
+          {
+            "id": "skip",
+            "title": "Skip",
+            "description": "The next player in turn order loses their entire turn — they neither draw nor play."
+          },
+          {
+            "id": "reverse",
+            "title": "Reverse",
+            "description": "Reverses the direction of play. In a two-player game, acts like a Skip — the same player takes another turn."
+          },
+          {
+            "id": "draw-two",
+            "title": "Draw Two",
+            "description": "The next player must draw 2 cards and forfeit their turn. Must match the current color to play.",
+            "important": true
+          },
+          {
+            "id": "wild",
+            "title": "Wild",
+            "description": "Playable on any turn. The player who plays it declares the next active color."
+          },
+          {
+            "id": "wild-draw-four",
+            "title": "Wild Draw Four",
+            "description": "The player declares the next color, and the next player must draw 4 cards and lose their turn. May only be legally played if you have no cards matching the current color.",
+            "important": true
+          }
+        ]
+      },
+      {
+        "id": "winning",
+        "title": "Winning & Scoring",
+        "icon": "Trophy",
+        "rules": [
+          {
+            "id": "round-end",
+            "title": "Winning a Round",
+            "description": "The first player to play all cards from their hand wins the round."
+          },
+          {
+            "id": "scoring",
+            "title": "Scoring",
+            "description": "The winner scores points based on cards remaining in opponents' hands: numbered cards = face value (0–9), action cards (Skip, Reverse, Draw Two) = 20 points each, Wild and Wild Draw Four = 50 points each."
+          },
+          {
+            "id": "game-end",
+            "title": "Winning the Game",
+            "description": "First player to accumulate 500 points across multiple rounds wins the game."
+          }
+        ]
+      }
+    ]
+  },
+  "components": [
+    { "name": "Number Cards", "quantity": 76, "description": "Cards 0–9 in 4 colors (Red, Blue, Green, Yellow)", "icon": "Hash" },
+    { "name": "Action Cards", "quantity": 24, "description": "8 Skip, 8 Reverse, 8 Draw Two", "icon": "Zap" },
+    { "name": "Wild Cards", "quantity": 4, "icon": "Shuffle" },
+    { "name": "Wild Draw Four Cards", "quantity": 4, "icon": "AlertCircle" }
+  ],
+  "variants": [
+    {
+      "name": "Stacking House Rule",
+      "description": "A popular house rule where players can stack Draw Two cards — each subsequent player can play another Draw Two instead of drawing, forcing the next player to draw an ever-larger pile.",
+      "difficulty": "beginner"
+    },
+    {
+      "name": "Uno Flip",
+      "description": "A variant with a double-sided deck — the 'Flip' card flips the entire deck to its dark side, introducing much harsher action cards.",
+      "difficulty": "beginner"
+    }
+  ],
+  "tips": [
+    {
+      "category": "beginner",
+      "title": "Save Wild Draw Four cards",
+      "content": "Wild Draw Four cards are powerful and can only be played legally when you lack the active color. Save them for desperate situations or to win."
+    },
+    {
+      "category": "strategy",
+      "title": "Play action cards strategically",
+      "content": "Use Skip, Reverse, and Draw Two cards to defend yourself when you're close to winning — preventing the next player from winning before you."
+    },
+    {
+      "category": "etiquette",
+      "title": "Don't challenge bluffs too often",
+      "content": "You can challenge a Wild Draw Four if you think the player had a matching color card. But if you're wrong, you draw 6 instead of 4 — challenge wisely."
+    }
+  ],
+  "relatedGames": ["texas-holdem", "pandemic"]
+}

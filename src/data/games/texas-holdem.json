@@ -1,0 +1,155 @@
+{
+  "id": "texas-holdem",
+  "slug": "texas-holdem",
+  "name": "Texas Hold'em",
+  "tagline": "The world's most popular poker variant",
+  "description": "Texas Hold'em is the most widely played form of poker. Players combine two private hole cards with five community cards to make the best five-card hand. With multiple betting rounds and psychological depth, it rewards both skill and reading opponents.",
+  "category": "card-game",
+  "subcategory": "Poker",
+  "difficulty": "intermediate",
+  "playerCount": { "min": 2, "max": 9, "ideal": 6 },
+  "playTime": { "min": 30, "max": 180 },
+  "ageRange": { "min": 16 },
+  "tags": ["poker", "betting", "strategy", "bluffing", "classic"],
+  "accentColor": "#06d6a0",
+  "accentColorRgb": "6, 214, 160",
+  "guide": {
+    "objective": "Win the pot by having the best five-card hand at showdown or by making all other players fold.",
+    "quickRules": [
+      "Each player gets 2 private 'hole' cards",
+      "5 community cards are dealt face-up in stages (flop, turn, river)",
+      "Use any combination of your 2 cards and the 5 community cards",
+      "Bet, call, raise, or fold in each of 4 betting rounds",
+      "Best 5-card hand wins the pot at showdown"
+    ],
+    "sections": [
+      {
+        "id": "setup",
+        "title": "Setup & Blinds",
+        "icon": "CircleDot",
+        "steps": [
+          {
+            "number": 1,
+            "title": "Choose a dealer",
+            "description": "Place the dealer button in front of one player. The button moves clockwise each hand."
+          },
+          {
+            "number": 2,
+            "title": "Post the blinds",
+            "description": "The player to the left of the dealer posts the Small Blind (half the minimum bet). The next player posts the Big Blind (full minimum bet). These forced bets seed the pot.",
+            "tip": "Blinds exist to ensure there's always something to play for, preventing everyone from folding pre-flop."
+          },
+          {
+            "number": 3,
+            "title": "Deal hole cards",
+            "description": "Deal 2 cards face-down to each player, starting with the small blind, going clockwise."
+          }
+        ]
+      },
+      {
+        "id": "betting-rounds",
+        "title": "The Four Betting Rounds",
+        "icon": "RefreshCw",
+        "steps": [
+          {
+            "number": 1,
+            "title": "Pre-Flop",
+            "description": "After seeing hole cards, betting starts with the player left of the big blind. Each player may call (match big blind), raise, or fold. The big blind gets one final option to raise."
+          },
+          {
+            "number": 2,
+            "title": "The Flop",
+            "description": "Burn one card, then deal 3 community cards face-up. Betting starts with the first active player left of the dealer. Players may check (pass) if no bet has been made.",
+            "tip": "The flop dramatically changes the strength of hands — evaluate your hand honestly here."
+          },
+          {
+            "number": 3,
+            "title": "The Turn",
+            "description": "Burn one card, deal a 4th community card face-up (the 'turn'). Another betting round. Bets often double in limit poker."
+          },
+          {
+            "number": 4,
+            "title": "The River",
+            "description": "Burn one card, deal the 5th and final community card face-up. Final betting round. If two or more players remain, go to showdown."
+          }
+        ]
+      },
+      {
+        "id": "hand-rankings",
+        "title": "Hand Rankings",
+        "icon": "Trophy",
+        "content": "Hands are ranked from highest (best) to lowest. The best 5-card combination from your 7 available cards wins.",
+        "diagram": {
+          "type": "card-layout",
+          "component": "CardLayout",
+          "props": { "variant": "poker-hands" },
+          "caption": "Poker hand rankings from highest to lowest"
+        },
+        "rules": [
+          { "id": "royal-flush", "title": "Royal Flush", "description": "A, K, Q, J, 10 — all the same suit. The best possible hand.", "important": true },
+          { "id": "straight-flush", "title": "Straight Flush", "description": "Five consecutive cards of the same suit. E.g., 5♠ 6♠ 7♠ 8♠ 9♠." },
+          { "id": "four-kind", "title": "Four of a Kind", "description": "Four cards of the same rank. E.g., K♠ K♥ K♦ K♣." },
+          { "id": "full-house", "title": "Full House", "description": "Three of a kind plus a pair. E.g., Q♠ Q♥ Q♦ 8♣ 8♠." },
+          { "id": "flush", "title": "Flush", "description": "Any five cards of the same suit, not in sequence." },
+          { "id": "straight", "title": "Straight", "description": "Five consecutive cards of mixed suits. Ace can be high or low." },
+          { "id": "three-kind", "title": "Three of a Kind", "description": "Three cards of the same rank." },
+          { "id": "two-pair", "title": "Two Pair", "description": "Two different pairs. E.g., J♠ J♥ 4♣ 4♦." },
+          { "id": "one-pair", "title": "One Pair", "description": "Two cards of the same rank. The most common hand." },
+          { "id": "high-card", "title": "High Card", "description": "No combination — hand is valued by its highest card." }
+        ]
+      },
+      {
+        "id": "betting-actions",
+        "title": "Betting Actions",
+        "icon": "DollarSign",
+        "rules": [
+          { "id": "check", "title": "Check", "description": "Pass the action to the next player without betting. Only available if no one has bet yet in this round." },
+          { "id": "bet", "title": "Bet", "description": "Place chips in the pot. All other players must call, raise, or fold." },
+          { "id": "call", "title": "Call", "description": "Match the current bet to stay in the hand." },
+          { "id": "raise", "title": "Raise", "description": "Increase the current bet. Other players must call your raise, re-raise, or fold." },
+          { "id": "fold", "title": "Fold", "description": "Discard your hand and forfeit any chips in the pot. You're out of this hand.", "important": true }
+        ]
+      }
+    ]
+  },
+  "components": [
+    { "name": "Standard Deck", "quantity": 1, "description": "52 cards, no jokers", "icon": "Layers" },
+    { "name": "Poker Chips", "quantity": 200, "description": "Various denominations for betting", "icon": "Circle" },
+    { "name": "Dealer Button", "quantity": 1, "icon": "CircleDot" }
+  ],
+  "variants": [
+    {
+      "name": "No-Limit Hold'em",
+      "description": "Players can bet any amount up to their entire chip stack at any time. The most common form in tournaments.",
+      "difficulty": "intermediate"
+    },
+    {
+      "name": "Pot-Limit Hold'em",
+      "description": "Maximum bet is the current pot size. Less volatile than no-limit.",
+      "difficulty": "intermediate"
+    },
+    {
+      "name": "Tournament Play",
+      "description": "Players start with equal chips; blinds increase over time. Last player with chips wins. Cannot cash out during play.",
+      "difficulty": "intermediate"
+    }
+  ],
+  "tips": [
+    {
+      "category": "beginner",
+      "title": "Play fewer starting hands",
+      "content": "Beginners often play too many hands. Focus on strong starting hands like high pairs (AA, KK, QQ) and strong suited connectors. Fold weak hands early — patience wins."
+    },
+    {
+      "category": "strategy",
+      "title": "Position is power",
+      "content": "Acting last in a betting round (the dealer position) is a huge advantage. You see everyone else's actions before deciding. Play more hands from late position."
+    },
+    {
+      "category": "advanced",
+      "title": "Manage your bankroll",
+      "content": "Never play with money you can't afford to lose, and avoid going all-in without a strong hand. Consistent small wins beat occasional big risks."
+    }
+  ],
+  "relatedGames": ["uno", "pandemic"]
+}

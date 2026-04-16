@@ -1,0 +1,191 @@
+{
+  "id": "dungeons-and-dragons",
+  "slug": "dungeons-and-dragons",
+  "name": "Dungeons & Dragons",
+  "tagline": "Collaborative storytelling in a world of infinite possibility",
+  "description": "Dungeons & Dragons (D&D) is the world's best-known tabletop roleplaying game. One player acts as the Dungeon Master (DM), narrating a fantasy world, while others create characters and collaboratively tell an epic story. The 5th edition is the most accessible version yet.",
+  "category": "roleplaying",
+  "subcategory": "Fantasy RPG",
+  "difficulty": "advanced",
+  "playerCount": { "min": 2, "max": 6, "ideal": 5 },
+  "playTime": { "min": 120, "max": 240 },
+  "ageRange": { "min": 12 },
+  "year": 1974,
+  "designer": "Gary Gygax & Dave Arneson",
+  "publisher": "Wizards of the Coast",
+  "tags": ["roleplaying", "cooperative", "storytelling", "fantasy", "campaign"],
+  "accentColor": "#a78bfa",
+  "accentColorRgb": "167, 139, 250",
+  "featured": false,
+  "guide": {
+    "objective": "Work together as a group of adventurers to overcome challenges, explore the world, and tell a compelling story — there's no single winner.",
+    "quickRules": [
+      "One player is the Dungeon Master (DM) — they run the world and all NPCs",
+      "Other players create and control characters (Player Characters / PCs)",
+      "Roll a d20 + modifiers to resolve uncertain actions (Ability Checks)",
+      "Combat is turn-based with structured Initiative order",
+      "Characters gain experience and level up through adventure"
+    ],
+    "sections": [
+      {
+        "id": "core-mechanic",
+        "title": "The Core Mechanic",
+        "icon": "Dices",
+        "content": "Almost everything in D&D 5e resolves with one core mechanic: roll a d20, add a relevant modifier, compare to a Difficulty Class (DC).",
+        "diagram": {
+          "type": "dice",
+          "component": "DiceDisplay",
+          "caption": "The D&D dice set — d4, d6, d8, d10, d12, d20, d100"
+        },
+        "rules": [
+          {
+            "id": "d20-roll",
+            "title": "The d20 Roll",
+            "description": "Roll a 20-sided die (d20). Add your relevant ability modifier (Strength, Dexterity, etc.) and any proficiency bonus if applicable.",
+            "important": true
+          },
+          {
+            "id": "dc",
+            "title": "Difficulty Class (DC)",
+            "description": "The DM sets a target number (DC) for tasks. Roll equal to or higher to succeed. Easy tasks might be DC 10; nearly impossible feats might be DC 25."
+          },
+          {
+            "id": "advantage",
+            "title": "Advantage & Disadvantage",
+            "description": "Advantage: roll two d20s, keep the higher. Disadvantage: roll two d20s, keep the lower. These reflect favorable or unfavorable circumstances.",
+            "important": true
+          },
+          {
+            "id": "nat-20",
+            "title": "Critical Hit (Natural 20)",
+            "description": "Rolling a 20 on the die (before modifiers) in combat is a critical hit — you deal double damage dice. Rolling a 1 is a critical miss — your attack automatically fails."
+          }
+        ]
+      },
+      {
+        "id": "character",
+        "title": "Character Basics",
+        "icon": "User",
+        "rules": [
+          {
+            "id": "ability-scores",
+            "title": "Six Ability Scores",
+            "description": "Every character has 6 scores: Strength (STR), Dexterity (DEX), Constitution (CON), Intelligence (INT), Wisdom (WIS), Charisma (CHA). Scores typically range from 8–18 at character creation.",
+            "important": true
+          },
+          {
+            "id": "modifiers",
+            "title": "Ability Modifiers",
+            "description": "Each score converts to a modifier: score 10–11 = +0, 12–13 = +1, 14–15 = +2, 16–17 = +3, 18 = +4. Modifiers are added to relevant rolls."
+          },
+          {
+            "id": "race-class",
+            "title": "Race & Class",
+            "description": "Choose a race (Human, Elf, Dwarf, etc.) that grants ability bonuses and traits. Choose a class (Fighter, Wizard, Rogue, etc.) that defines your abilities, Hit Points, and skills."
+          },
+          {
+            "id": "hit-points",
+            "title": "Hit Points (HP)",
+            "description": "HP represents how much damage your character can take. When HP reaches 0, you're unconscious. At 0 HP you make Death Saving Throws — three failures means death."
+          }
+        ]
+      },
+      {
+        "id": "combat",
+        "title": "Combat",
+        "icon": "Sword",
+        "steps": [
+          {
+            "number": 1,
+            "title": "Determine Surprise",
+            "description": "If one side ambushes the other, the surprised party cannot act during the first round of combat."
+          },
+          {
+            "number": 2,
+            "title": "Roll Initiative",
+            "description": "Everyone rolls d20 + DEX modifier. This determines turn order — highest goes first. The DM rolls for monsters (often as a group).",
+            "tip": "Write down the initiative order and post it visibly — it speeds up combat enormously."
+          },
+          {
+            "number": 3,
+            "title": "Take Your Turn",
+            "description": "On your turn you get: 1 Action (attack, cast a spell, dash, etc.), 1 Bonus Action (if a feature gives it), movement up to your speed, and 1 free object interaction."
+          },
+          {
+            "number": 4,
+            "title": "Attack Roll",
+            "description": "Roll d20 + attack modifier vs. the target's Armor Class (AC). If your result meets or beats the AC, you hit — then roll damage dice.",
+            "tip": "Melee attacks use STR modifier; ranged and finesse attacks may use DEX."
+          }
+        ]
+      },
+      {
+        "id": "spellcasting",
+        "title": "Spellcasting Basics",
+        "icon": "Sparkles",
+        "rules": [
+          {
+            "id": "spell-slots",
+            "title": "Spell Slots",
+            "description": "Spellcasters have a limited number of 'spell slots' per rest. Casting a spell expends a slot. You regain all slots after a Long Rest (8 hours).",
+            "important": true
+          },
+          {
+            "id": "spell-levels",
+            "title": "Spell Levels",
+            "description": "Spells range from cantrips (level 0, unlimited uses) to 9th-level spells (the most powerful). Higher-slot casting of lower-level spells often improves their effect."
+          },
+          {
+            "id": "concentration",
+            "title": "Concentration",
+            "description": "Some spells require concentration to maintain their effect. You can only concentrate on one spell at a time; taking damage may break concentration (CON saving throw, DC = 10 or half damage taken)."
+          }
+        ]
+      }
+    ]
+  },
+  "components": [
+    { "name": "Player's Handbook", "quantity": 1, "description": "Core rules, races, classes, spells", "icon": "BookOpen" },
+    { "name": "Dungeon Master's Guide", "quantity": 1, "description": "World-building rules for the DM", "icon": "Map" },
+    { "name": "Monster Manual", "quantity": 1, "description": "Stat blocks for hundreds of monsters", "icon": "Shield" },
+    { "name": "Dice Set (per player)", "quantity": 1, "description": "d4, d6, d8, d10, d12, d20, d100 (percentile)", "icon": "Dices" },
+    { "name": "Character Sheets", "quantity": 1, "description": "One per player character", "icon": "FileText" },
+    { "name": "Miniatures / Tokens", "quantity": 0, "description": "Optional — for tracking positions on battle maps", "icon": "Users" }
+  ],
+  "variants": [
+    {
+      "name": "One-Shot Adventures",
+      "description": "A self-contained adventure completed in a single session (3–5 hours). Great for introducing new players to D&D.",
+      "difficulty": "advanced",
+      "playerCount": { "min": 2, "max": 5 }
+    },
+    {
+      "name": "West Marches Campaign",
+      "description": "A large sandbox setting where different groups of players explore the same world in separate sessions — perfect for large groups with scheduling constraints.",
+      "difficulty": "expert"
+    }
+  ],
+  "tips": [
+    {
+      "category": "beginner",
+      "title": "Focus on fun, not optimization",
+      "content": "Your first character doesn't need to be mechanically perfect. Pick a concept that excites you — a grumpy dwarf baker who became an adventurer, or a curious wizard who collects odd hats. The story matters more than the stats."
+    },
+    {
+      "category": "etiquette",
+      "title": "Session Zero is essential",
+      "content": "Before campaign play, hold a 'Session Zero' — discuss tone, themes, boundaries (content X-Card), character backstories, and player expectations. This prevents most future table conflicts."
+    },
+    {
+      "category": "strategy",
+      "title": "Communicate with your party",
+      "content": "D&D is cooperative. Talk strategy openly, coordinate spells and abilities, and support each other's characters. A well-coordinated party beats a group of lone wolves every time."
+    },
+    {
+      "category": "advanced",
+      "title": "Learn the action economy",
+      "content": "Combat in D&D is about maximizing what you can accomplish in your action, bonus action, and movement. Classes and features that grant extra actions or bonus actions are disproportionately powerful."
+    }
+  ],
+  "relatedGames": ["catan", "pandemic"]
+}

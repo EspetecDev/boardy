@@ -1,0 +1,202 @@
+{
+  "id": "catan",
+  "slug": "catan",
+  "name": "Catan",
+  "tagline": "Settle, trade, and build your way to victory",
+  "description": "Catan (formerly Settlers of Catan) is a multiplayer strategy game where players collect resources, build settlements, and trade to expand across a modular island. Every game features a different board layout, ensuring high replayability.",
+  "category": "board-game",
+  "subcategory": "Strategy",
+  "difficulty": "intermediate",
+  "playerCount": { "min": 3, "max": 4, "ideal": 4 },
+  "playTime": { "min": 60, "max": 120 },
+  "ageRange": { "min": 10 },
+  "year": 1995,
+  "designer": "Klaus Teuber",
+  "publisher": "Kosmos",
+  "tags": ["strategy", "trading", "resource-management", "family", "classic"],
+  "accentColor": "#f97316",
+  "accentColorRgb": "249, 115, 22",
+  "featured": true,
+  "guide": {
+    "objective": "Be the first player to earn 10 Victory Points by building settlements, cities, roads, and special cards.",
+    "quickRules": [
+      "Roll dice to produce resources on matching hex numbers",
+      "Collect wood, brick, grain, ore, and wool resources",
+      "Build roads, settlements, and cities using resource cards",
+      "Trade with other players or the bank (4:1 or port rates)",
+      "First to 10 Victory Points wins"
+    ],
+    "sections": [
+      {
+        "id": "setup",
+        "title": "Setting Up the Island",
+        "icon": "Map",
+        "content": "The island of Catan is built fresh each game by randomly arranging hex terrain tiles and number tokens.",
+        "diagram": {
+          "type": "board",
+          "component": "CatanBoard",
+          "caption": "The island of Catan — 19 resource hexes surrounded by ocean tiles"
+        },
+        "steps": [
+          {
+            "number": 1,
+            "title": "Assemble the frame",
+            "description": "Place the 6 ocean border pieces to form the island frame."
+          },
+          {
+            "number": 2,
+            "title": "Place terrain hexes",
+            "description": "Randomly place all 19 terrain hexes inside the frame: 4 forests, 4 pastures, 4 fields, 3 mountains, 3 hills, 1 desert."
+          },
+          {
+            "number": 3,
+            "title": "Assign number tokens",
+            "description": "Place the lettered number tokens (2–12, except 7) on non-desert hexes in alphabetical spiral order starting from a corner.",
+            "tip": "The red numbers 6 and 8 cannot be adjacent to each other — they are most frequently rolled."
+          },
+          {
+            "number": 4,
+            "title": "Place the robber",
+            "description": "Place the robber pawn on the desert hex."
+          },
+          {
+            "number": 5,
+            "title": "Place starting settlements",
+            "description": "In reverse turn order, each player places 2 settlements and 2 roads. The last player places both sets before reversing. Each player takes resources matching the hexes touching their second settlement."
+          }
+        ]
+      },
+      {
+        "id": "resources",
+        "title": "Resources",
+        "icon": "Package",
+        "content": "There are 5 resource types. Every building and development card costs specific combinations of resources.",
+        "rules": [
+          {
+            "id": "wood",
+            "title": "Wood (Forest)",
+            "description": "Produced by forest hexes. Used to build roads and settlements."
+          },
+          {
+            "id": "brick",
+            "title": "Brick (Hills)",
+            "description": "Produced by hills hexes. Used to build roads and settlements."
+          },
+          {
+            "id": "grain",
+            "title": "Grain (Fields)",
+            "description": "Produced by fields hexes. Used to build settlements, upgrade to cities, and buy development cards."
+          },
+          {
+            "id": "ore",
+            "title": "Ore (Mountains)",
+            "description": "Produced by mountain hexes. Used to upgrade settlements to cities and buy development cards."
+          },
+          {
+            "id": "wool",
+            "title": "Wool (Pasture)",
+            "description": "Produced by pasture hexes. Used to build settlements and buy development cards."
+          }
+        ]
+      },
+      {
+        "id": "turn-structure",
+        "title": "Taking Your Turn",
+        "icon": "RefreshCw",
+        "steps": [
+          {
+            "number": 1,
+            "title": "Roll the dice",
+            "description": "Roll both dice. All players collect resources from hexes touching settlements or cities that match the rolled number. Cities collect 2 resources; settlements collect 1.",
+            "tip": "If a 7 is rolled, players with more than 7 cards must discard half. Then the active player moves the robber."
+          },
+          {
+            "number": 2,
+            "title": "Trade",
+            "description": "Trade resource cards with other players at any ratio you both agree on. Or trade with the bank at 4:1 (or 3:1 / 2:1 at ports)."
+          },
+          {
+            "number": 3,
+            "title": "Build",
+            "description": "Spend resources to build: Road (1 wood + 1 brick), Settlement (1 wood + 1 brick + 1 grain + 1 wool), City upgrade (2 grain + 3 ore), Development card (1 grain + 1 ore + 1 wool)."
+          }
+        ]
+      },
+      {
+        "id": "victory-points",
+        "title": "Victory Points",
+        "icon": "Trophy",
+        "rules": [
+          {
+            "id": "settlement-vp",
+            "title": "Settlements",
+            "description": "Each settlement is worth 1 Victory Point."
+          },
+          {
+            "id": "city-vp",
+            "title": "Cities",
+            "description": "Each city (upgraded settlement) is worth 2 Victory Points."
+          },
+          {
+            "id": "longest-road",
+            "title": "Longest Road",
+            "description": "The player with the longest continuous road of 5+ segments earns the Longest Road card (2 VP). Can be stolen.",
+            "important": true
+          },
+          {
+            "id": "largest-army",
+            "title": "Largest Army",
+            "description": "The player who plays the most Knight development cards (3+) earns the Largest Army card (2 VP). Can be stolen.",
+            "important": true
+          },
+          {
+            "id": "dev-vp",
+            "title": "Victory Point Development Cards",
+            "description": "Some development cards are worth 1 VP each. Reveal them all at once when you reach 10 VP."
+          }
+        ]
+      }
+    ]
+  },
+  "components": [
+    { "name": "Terrain Hexes", "quantity": 19, "icon": "Hexagon" },
+    { "name": "Number Tokens", "quantity": 18, "icon": "Hash" },
+    { "name": "Sea Frame Pieces", "quantity": 6, "icon": "Waves" },
+    { "name": "Resource Cards", "quantity": 95, "icon": "Layers" },
+    { "name": "Development Cards", "quantity": 25, "icon": "Sparkles" },
+    { "name": "Roads", "quantity": 60, "description": "15 per player in 4 colors", "icon": "Minus" },
+    { "name": "Settlements", "quantity": 20, "description": "5 per player in 4 colors", "icon": "Home" },
+    { "name": "Cities", "quantity": 16, "description": "4 per player in 4 colors", "icon": "Building2" },
+    { "name": "Dice", "quantity": 2, "icon": "Dices" },
+    { "name": "Robber", "quantity": 1, "icon": "EyeOff" }
+  ],
+  "variants": [
+    {
+      "name": "Catan: 5–6 Player Extension",
+      "description": "An expansion that extends the game for up to 6 players with additional hexes, cards, and pieces.",
+      "playerCount": { "min": 5, "max": 6 }
+    },
+    {
+      "name": "Seafarers",
+      "description": "An expansion adding ships, gold hexes, and multiple islands to explore and colonize."
+    }
+  ],
+  "tips": [
+    {
+      "category": "beginner",
+      "title": "Diversify your resources",
+      "content": "Try to place your starting settlements so you can produce at least 3 different resource types. Having access to all 5 from the start is ideal."
+    },
+    {
+      "category": "strategy",
+      "title": "Build toward ports",
+      "content": "A 2:1 port for a resource you produce abundantly lets you trade very efficiently. Planning road routes toward ports is often a winning strategy."
+    },
+    {
+      "category": "etiquette",
+      "title": "Trade generously early",
+      "content": "Trading keeps the game flowing and builds goodwill. Early in the game, be open to trades — you'll need help later too."
+    }
+  ],
+  "relatedGames": ["pandemic", "chess"]
+}
