@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import HeroSection from "@/components/home/HeroSection";
