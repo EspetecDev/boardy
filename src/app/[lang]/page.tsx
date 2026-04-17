@@ -1,3 +1,5 @@
+import { hasLocale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import HeroSection from "@/components/home/HeroSection";
 import StatsBar from "@/components/home/StatsBar";
 import CategoryGrid from "@/components/home/CategoryGrid";
@@ -7,7 +9,15 @@ import { getFeaturedGames, getAllGames } from "@/lib/games";
 import { categories } from "@/data/categories";
 import GameCard from "@/components/games/GameCard";
 
-export default async function HomePage() {
+interface Props {
+  params: Promise<{ lang: string }>;
+}
+
+export default async function HomePage({ params }: Props) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+
+  const dict = await getDictionary(lang);
   const [featuredGames, allGames] = await Promise.all([
     getFeaturedGames(),
     getAllGames(),
@@ -16,24 +26,23 @@ export default async function HomePage() {
 
   return (
     <>
-      <HeroSection />
-      <StatsBar />
-      <FeaturedGames games={featuredGames} />
-      <CategoryGrid categories={categories} />
-      <HowItWorks />
+      <HeroSection lang={lang} dict={dict.home.hero} />
+      <StatsBar dict={dict.home.stats} />
+      <FeaturedGames games={featuredGames} dict={dict.home.featured} gamesDict={dict.games} lang={lang} />
+      <CategoryGrid categories={categories} dict={dict} lang={lang} />
+      <HowItWorks dict={dict.home.howItWorks} />
 
-      {/* More games section */}
       <section className="px-4 pb-20 sm:px-6" style={{ background: "var(--color-bg-surface)" }}>
         <div className="mx-auto max-w-7xl">
           <div className="mb-8">
             <h2 className="font-display text-2xl font-bold text-text-primary sm:text-3xl">
-              More Games
+              {dict.home.moreGames.title}
             </h2>
-            <p className="mt-1 text-text-secondary">Explore the full guide library</p>
+            <p className="mt-1 text-text-secondary">{dict.home.moreGames.subtitle}</p>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {recentGames.map((game) => (
-              <GameCard key={game.id} game={game} variant="grid" />
+              <GameCard key={game.id} game={game} variant="grid" lang={lang} dict={dict.games} />
             ))}
           </div>
         </div>

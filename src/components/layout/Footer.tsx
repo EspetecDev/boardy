@@ -1,29 +1,34 @@
 import Link from "next/link";
 import { Dices, Heart } from "lucide-react";
+import { localePath } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/TranslationProvider";
 
-const footerLinks = {
-  Games: [
-    { href: "/categories/board-game", label: "Board Games" },
-    { href: "/categories/card-game", label: "Card Games" },
-    { href: "/categories/roleplaying", label: "RPGs" },
-    { href: "/categories/party-game", label: "Party Games" },
-  ],
-  Guides: [
-    { href: "/games/chess", label: "Chess" },
-    { href: "/games/catan", label: "Catan" },
-    { href: "/games/uno", label: "Uno" },
-    { href: "/games/texas-holdem", label: "Texas Hold'em" },
-  ],
-};
+interface FooterProps {
+  lang: string;
+}
 
-export default function Footer() {
+export default function Footer({ lang }: FooterProps) {
+  const footerLinks = {
+    Games: [
+      { href: localePath(lang, "/categories/board-game"), label: "Board Games" },
+      { href: localePath(lang, "/categories/card-game"), label: "Card Games" },
+      { href: localePath(lang, "/categories/roleplaying"), label: "RPGs" },
+      { href: localePath(lang, "/categories/party-game"), label: "Party Games" },
+    ],
+    Guides: [
+      { href: localePath(lang, "/games/chess"), label: "Chess" },
+      { href: localePath(lang, "/games/catan"), label: "Catan" },
+      { href: localePath(lang, "/games/uno"), label: "Uno" },
+      { href: localePath(lang, "/games/texas-holdem"), label: "Texas Hold'em" },
+    ],
+  };
+
   return (
     <footer className="border-t" style={{ borderColor: "var(--color-bg-border)", background: "var(--color-bg-surface)" }}>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 font-display text-lg font-bold">
+            <Link href={localePath(lang, "/")} className="flex items-center gap-2 font-display text-lg font-bold">
               <div className="flex h-7 w-7 items-center justify-center rounded-md" style={{ background: "var(--color-accent-primary)" }}>
                 <Dices className="h-4 w-4 text-white" />
               </div>
@@ -34,7 +39,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
               <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-text-muted)" }}>

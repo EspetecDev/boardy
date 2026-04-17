@@ -3,12 +3,16 @@
 import { motion } from "framer-motion";
 import type { Game } from "@/types/game";
 import GameCard from "@/components/games/GameCard";
+import type { Dictionary } from "@/i18n/TranslationProvider";
 
 interface FeaturedGamesProps {
   games: Game[];
+  dict: Dictionary["home"]["featured"];
+  gamesDict: Dictionary["games"];
+  lang: string;
 }
 
-export default function FeaturedGames({ games }: FeaturedGamesProps) {
+export default function FeaturedGames({ games, dict, gamesDict, lang }: FeaturedGamesProps) {
   return (
     <section className="px-4 py-16 sm:px-6" style={{ background: "var(--color-bg-surface)" }}>
       <div className="mx-auto max-w-7xl">
@@ -24,13 +28,13 @@ export default function FeaturedGames({ games }: FeaturedGamesProps) {
               className="rounded-full px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-white"
               style={{ background: "var(--color-accent-primary)" }}
             >
-              Featured
+              {dict.badge}
             </span>
           </div>
           <h2 className="font-display text-3xl font-bold text-text-primary sm:text-4xl">
-            Editor&apos;s Picks
+            {dict.title}
           </h2>
-          <p className="mt-2 text-text-secondary">Popular games with detailed step-by-step guides</p>
+          <p className="mt-2 text-text-secondary">{dict.subtitle}</p>
         </motion.div>
 
         <motion.div
@@ -48,7 +52,7 @@ export default function FeaturedGames({ games }: FeaturedGamesProps) {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
               }}
             >
-              <GameCard game={game} variant="featured" />
+              <GameCard game={game} variant="featured" lang={lang} dict={gamesDict} />
             </motion.div>
           ))}
         </motion.div>

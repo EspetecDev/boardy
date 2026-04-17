@@ -5,25 +5,22 @@ import { useCallback } from "react";
 import { X } from "lucide-react";
 import Chip from "@/components/ui/Chip";
 import type { Difficulty, GameCategory } from "@/types/game";
+import type { Dictionary } from "@/i18n/TranslationProvider";
 
-const categories: { id: GameCategory; label: string }[] = [
-  { id: "board-game", label: "Board Games" },
-  { id: "card-game", label: "Card Games" },
-  { id: "roleplaying", label: "RPGs" },
-  { id: "party-game", label: "Party Games" },
-  { id: "dice-game", label: "Dice Games" },
+const categoryIds: GameCategory[] = [
+  "board-game", "card-game", "roleplaying", "party-game", "dice-game",
 ];
 
-const difficulties: { id: Difficulty; label: string }[] = [
-  { id: "beginner", label: "Beginner" },
-  { id: "intermediate", label: "Intermediate" },
-  { id: "advanced", label: "Advanced" },
-  { id: "expert", label: "Expert" },
-];
+const difficultyIds: Difficulty[] = ["beginner", "intermediate", "advanced", "expert"];
 
 const playerCounts = [2, 3, 4, 5, 6];
 
-export default function FilterBar() {
+interface FilterBarProps {
+  dict: Dictionary["filters"];
+  difficultyDict: Dictionary["difficulty"];
+}
+
+export default function FilterBar({ dict, difficultyDict }: FilterBarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -61,6 +58,17 @@ export default function FilterBar() {
     router.push(`?${params.toString()}`, { scroll: false });
   };
 
+  const categoryLabels: Record<GameCategory, string> = {
+    "board-game": "Board Games",
+    "card-game": "Card Games",
+    "roleplaying": "RPGs",
+    "party-game": "Party Games",
+    "dice-game": "Dice Games",
+    "tile-game": "Tile Games",
+    "miniatures": "Miniatures",
+    "puzzle": "Puzzles",
+  };
+
   return (
     <div
       className="sticky top-16 z-40 border-b bg-bg-base/90 px-4 py-3 backdrop-blur-sm sm:px-6"
@@ -68,41 +76,38 @@ export default function FilterBar() {
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-wrap gap-6">
-          {/* Category */}
           <div className="flex items-center gap-2">
-            <span className="shrink-0 text-xs font-medium text-text-muted">Type</span>
+            <span className="shrink-0 text-xs font-medium text-text-muted">{dict.type}</span>
             <div className="flex flex-wrap gap-1.5">
-              {categories.map((cat) => (
+              {categoryIds.map((id) => (
                 <Chip
-                  key={cat.id}
-                  active={activeCategory === cat.id}
-                  onClick={() => toggleFilter("category", cat.id, activeCategory)}
+                  key={id}
+                  active={activeCategory === id}
+                  onClick={() => toggleFilter("category", id, activeCategory)}
                 >
-                  {cat.label}
+                  {categoryLabels[id]}
                 </Chip>
               ))}
             </div>
           </div>
 
-          {/* Difficulty */}
           <div className="flex items-center gap-2">
-            <span className="shrink-0 text-xs font-medium text-text-muted">Level</span>
+            <span className="shrink-0 text-xs font-medium text-text-muted">{dict.level}</span>
             <div className="flex flex-wrap gap-1.5">
-              {difficulties.map((d) => (
+              {difficultyIds.map((id) => (
                 <Chip
-                  key={d.id}
-                  active={activeDifficulty === d.id}
-                  onClick={() => toggleFilter("difficulty", d.id, activeDifficulty)}
+                  key={id}
+                  active={activeDifficulty === id}
+                  onClick={() => toggleFilter("difficulty", id, activeDifficulty)}
                 >
-                  {d.label}
+                  {difficultyDict[id]}
                 </Chip>
               ))}
             </div>
           </div>
 
-          {/* Players */}
           <div className="flex items-center gap-2">
-            <span className="shrink-0 text-xs font-medium text-text-muted">Players</span>
+            <span className="shrink-0 text-xs font-medium text-text-muted">{dict.players}</span>
             <div className="flex flex-wrap gap-1.5">
               {playerCounts.map((count) => (
                 <Chip
@@ -116,13 +121,12 @@ export default function FilterBar() {
             </div>
           </div>
 
-          {/* Clear */}
           {hasFilters && (
             <button
               onClick={clearAll}
               className="flex items-center gap-1 text-xs text-accent-warm transition-opacity hover:opacity-80"
             >
-              <X className="h-3.5 w-3.5" /> Clear filters
+              <X className="h-3.5 w-3.5" /> {dict.clearFilters}
             </button>
           )}
         </div>

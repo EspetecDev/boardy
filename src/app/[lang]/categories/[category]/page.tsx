@@ -1,34 +1,44 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { hasLocale, locales, localePath } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import { getGamesByCategory } from "@/lib/games";
 import { categories } from "@/data/categories";
 import GameCard from "@/components/games/GameCard";
 import type { GameCategory } from "@/types/game";
 
 interface Props {
-  params: Promise<{ category: string }>;
+  params: Promise<{ lang: string; category: string }>;
 }
 
 export async function generateStaticParams() {
-  return categories.map((cat) => ({ category: cat.id }));
+  return locales.flatMap((lang) =>
+    categories.map((cat) => ({ lang, category: cat.id }))
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { category } = await params;
-  const cat = categories.find((c) => c.id === category);
-  if (!cat) return {};
+  const { lang, category } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  const catDict = dict.categories[category as keyof typeof dict.categories];
+  if (!catDict) return {};
   return {
-    title: `${cat.name} Guides | Boardy`,
-    description: `Browse all ${cat.name.toLowerCase()} game guides with rules and visual diagrams.`,
+    title: `${catDict.name} | Boardy`,
+    description: `Browse all ${catDict.name.toLowerCase()} game guides with rules and visual diagrams.`,
   };
 }
 
 export default async function CategoryPage({ params }: Props) {
-  const { category } = await params;
+  const { lang, category } = await params;
+  if (!hasLocale(lang)) notFound();
+
+  const dict = await getDictionary(lang);
   const cat = categories.find((c) => c.id === category);
   if (!cat) notFound();
 
+  const catDict = dict.categories[category as keyof typeof dict.categories];
   const games = await getGamesByCategory(category as GameCategory);
 
   return (
@@ -42,14 +52,16 @@ export default async function CategoryPage({ params }: Props) {
       >
         <div className="mx-auto max-w-7xl">
           <nav className="mb-4 flex items-center gap-2 text-sm text-text-muted">
-            <Link href="/" className="transition-colors hover:text-text-primary">Home</Link>
+            <Link href={localePath(lang, "/")} className="transition-colors hover:text-text-primary">
+              {dict.guide.breadcrumbHome}
+            </Link>
             <span>/</span>
-            <span className="text-text-secondary">{cat.name}</span>
+            <span className="text-text-secondary">{catDict?.name ?? cat.id}</span>
           </nav>
           <h1 className="mb-2 font-display text-4xl font-black text-text-primary">
-            {cat.name}
+            {catDict?.name ?? cat.id}
           </h1>
-          <p className="text-text-secondary">{cat.description}</p>
+          <p className="text-text-secondary">{catDict?.description ?? ""}</p>
         </div>
       </div>
 
@@ -57,24 +69,30 @@ export default async function CategoryPage({ params }: Props) {
         {games.length === 0 ? (
           <div className="py-20 text-center">
             <p className="mb-4 text-4xl">🎮</p>
-            <h3 className="mb-2 text-lg font-semibold text-text-primary">No guides yet</h3>
-            <p className="mb-6 text-text-secondary">We&apos;re working on adding {cat.name.toLowerCase()} guides.</p>
+            <h3 className="mb-2 text-lg font-semibold text-text-primary">
+              {dict.categoryPage.noGuidesTitle}
+            </h3>
+            <p className="mb-6 text-text-secondary">{dict.categoryPage.noGuidesDesc}</p>
             <Link
-              href="/games"
+              href={localePath(lang, "/games")}
               className="inline-flex rounded-xl border px-5 py-2.5 text-sm font-medium text-text-secondary"
               style={{ borderColor: "var(--color-bg-border)" }}
             >
-              Browse all games
+              {dict.categoryPage.browseAll}
             </Link>
           </div>
         ) : (
           <>
             <p className="mb-6 text-sm text-text-muted">
-              {games.length} guide{games.length !== 1 ? "s" : ""} in {cat.name}
+              {games.length}{" "}
+              {games.length !== 1
+                ? dict.categoryPage.guideCountPlural
+                : dict.categoryPage.guideCount}{" "}
+              {catDict?.name ?? cat.id}
             </p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {games.map((game) => (
-                <GameCard key={game.id} game={game} variant="grid" />
+                <GameCard key={game.id} game={game} variant="grid" lang={lang} dict={dict.games} />
               ))}
             </div>
           </>

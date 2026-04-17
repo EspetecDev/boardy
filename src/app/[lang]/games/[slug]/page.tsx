@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { hasLocale, locales, localePath } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import { getGame, getAllSlugs, getRelatedGames } from "@/lib/games";
 import GuideHero from "@/components/guide/GuideHero";
 import GuideNav from "@/components/guide/GuideNav";
@@ -11,16 +13,16 @@ import GameCard from "@/components/games/GameCard";
 import { BookOpen, Package } from "lucide-react";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
   const slugs = await getAllSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return locales.flatMap((lang) => slugs.map((slug) => ({ lang, slug })));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const game = await getGame(slug);
   if (!game) return {};
   return {
@@ -36,18 +38,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function GameGuidePage({ params }: Props) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  if (!hasLocale(lang)) notFound();
+
+  const dict = await getDictionary(lang);
   const [game, relatedGames] = await Promise.all([
     getGame(slug),
     getGame(slug).then((g) => (g ? getRelatedGames(g) : [])),
   ]);
   if (!game) notFound();
 
+  const guideDict = dict.guide;
+
   return (
     <div style={{ "--game-accent": game.accentColor, "--game-accent-rgb": game.accentColorRgb } as React.CSSProperties}>
-      <GuideHero game={game} />
+      <GuideHero game={game} lang={lang} dict={guideDict} categoryLabels={dict.categoryLabels} />
 
-      {/* Quick rules callout */}
       {game.guide.quickRules && game.guide.quickRules.length > 0 && (
         <div
           className="border-b px-4 py-4 sm:px-6"
@@ -60,9 +66,13 @@ export default async function GameGuidePage({ params }: Props) {
                 style={{ color: game.accentColor }}
               >
                 <BookOpen className="h-4 w-4" />
-                Quick Reference Rules
-                <span className="ml-auto text-xs font-normal text-text-muted group-open:hidden">Expand</span>
-                <span className="ml-auto hidden text-xs font-normal text-text-muted group-open:block">Collapse</span>
+                {guideDict.quickRulesTitle}
+                <span className="ml-auto text-xs font-normal text-text-muted group-open:hidden">
+                  {guideDict.expand}
+                </span>
+                <span className="ml-auto hidden text-xs font-normal text-text-muted group-open:block">
+                  {guideDict.collapse}
+                </span>
               </summary>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {game.guide.quickRules.map((rule, i) => (
@@ -86,36 +96,37 @@ export default async function GameGuidePage({ params }: Props) {
         </div>
       )}
 
-      {/* Main content area */}
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
         <div className="flex gap-10 lg:flex-row">
-          {/* Sidebar nav */}
           <aside className="hidden w-56 shrink-0 lg:block">
             <div className="sticky top-24">
-              <GuideNav sections={game.guide.sections} accentColor={game.accentColor} />
+              <GuideNav
+                sections={game.guide.sections}
+                accentColor={game.accentColor}
+                inThisGuide={guideDict.inThisGuide}
+              />
             </div>
           </aside>
 
-          {/* Guide sections */}
           <main className="min-w-0 flex-1">
             {game.guide.sections.map((section) => (
               <RuleSection key={section.id} section={section} game={game} />
             ))}
 
-            {/* Components */}
             <div className="mb-14">
               <ComponentsList
                 components={game.components}
                 accentColor={game.accentColor}
                 accentColorRgb={game.accentColorRgb}
+                title={guideDict.whatsInTheBox}
+                optionalLabel={guideDict.optional}
               />
             </div>
 
-            {/* Tips */}
             {game.tips && game.tips.length > 0 && (
               <div className="mb-14">
                 <h2 className="mb-2 font-display text-2xl font-bold text-text-primary sm:text-3xl">
-                  Tips & Strategy
+                  {guideDict.tipsAndStrategy}
                 </h2>
                 <div
                   className="mb-6 h-0.5 w-12 rounded-full"
@@ -123,17 +134,16 @@ export default async function GameGuidePage({ params }: Props) {
                 />
                 <div className="grid gap-3 sm:grid-cols-2">
                   {game.tips.map((tip, i) => (
-                    <TipCard key={i} tip={tip} />
+                    <TipCard key={i} tip={tip} tipCategories={dict.tipCategories} />
                   ))}
                 </div>
               </div>
             )}
 
-            {/* Variants */}
             {game.variants && game.variants.length > 0 && (
               <div className="mb-14">
                 <h2 className="mb-2 font-display text-2xl font-bold text-text-primary sm:text-3xl">
-                  Variants & Expansions
+                  {guideDict.variantsAndExpansions}
                 </h2>
                 <div
                   className="mb-6 h-0.5 w-12 rounded-full"
@@ -156,28 +166,26 @@ export default async function GameGuidePage({ params }: Props) {
           </main>
         </div>
 
-        {/* Related games */}
         {relatedGames.length > 0 && (
           <div className="mt-10 border-t pt-12" style={{ borderColor: "var(--color-bg-border)" }}>
             <h2 className="mb-6 font-display text-2xl font-bold text-text-primary">
-              You might also like
+              {guideDict.youMightAlsoLike}
             </h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {relatedGames.map((g) => (
-                <GameCard key={g.id} game={g} variant="grid" />
+                <GameCard key={g.id} game={g} variant="grid" lang={lang} dict={dict.games} />
               ))}
             </div>
           </div>
         )}
 
-        {/* Back to browse */}
         <div className="mt-12 text-center">
           <Link
-            href="/games"
+            href={localePath(lang, "/games")}
             className="inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
             style={{ borderColor: "var(--color-bg-border)" }}
           >
-            <Package className="h-4 w-4" /> Browse all games
+            <Package className="h-4 w-4" /> {guideDict.browseAllGames}
           </Link>
         </div>
       </div>

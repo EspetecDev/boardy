@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "browseGames": "Ver Juegos",
+    "boardGames": "Juegos de Mesa",
+    "cardGames": "Juegos de Cartas",
+    "rpgs": "RPGs",
+    "exploreAll": "Ver Todo",
+    "toggleMenu": "Abrir menú"
+  },
+  "footer": {
+    "tagline": "Guías hermosas y prácticas para todos los juegos de mesa — desde la configuración inicial hasta la estrategia ganadora.",
+    "madeWith": "Hecho con",
+    "forTabletopLovers": "para amantes de los juegos de mesa",
+    "allRightsReserved": "Todos los derechos reservados.",
+    "sectionGames": "Juegos",
+    "sectionGuides": "Guías"
+  },
+  "home": {
+    "hero": {
+      "badge": "6 juegos, explicados con elegancia",
+      "headline1": "Aprende cualquier juego de mesa",
+      "headline2": "en minutos.",
+      "description": "Guías hermosas y prácticas para juegos de mesa, cartas y RPGs. Reglas paso a paso con diagramas visuales — listos para jugar esta noche.",
+      "cta": "Ver Todos los Juegos",
+      "ctaChess": "♔ Empieza con Ajedrez"
+    },
+    "stats": {
+      "gameGuides": "Guías de Juegos",
+      "gameTypes": "Tipos de Juegos",
+      "playerCounts": "Número de Jugadores",
+      "skillLevels": "Niveles"
+    },
+    "categories": {
+      "title": "Explorar por Tipo",
+      "subtitle": "Encuentra el juego perfecto para tu grupo"
+    },
+    "featured": {
+      "badge": "Destacados",
+      "title": "Selección del Editor",
+      "subtitle": "Juegos populares con guías detalladas paso a paso"
+    },
+    "howItWorks": {
+      "title": "Cómo Funciona Boardy",
+      "step1Title": "Encuentra tu juego",
+      "step1Desc": "Busca por tipo, dificultad o número de jugadores. Busca cualquier juego que quieras aprender.",
+      "step2Title": "Lee la guía",
+      "step2Desc": "Diagramas visuales, configuración paso a paso y explicaciones claras de las reglas — todo en un solo lugar.",
+      "step3Title": "Juega esta noche",
+      "step3Desc": "Con una referencia rápida y consejos profesionales, estarás listo para jugar tu primera partida en minutos.",
+      "stepLabel": "Paso"
+    },
+    "moreGames": {
+      "title": "Más Juegos",
+      "subtitle": "Explora la biblioteca completa de guías"
+    }
+  },
+  "games": {
+    "title": "Todos los Juegos",
+    "subtitle": "guías — encuentra el juego perfecto para tu grupo",
+    "searchPlaceholder": "Buscar juegos...",
+    "resultCount": "juego",
+    "resultCountPlural": "juegos",
+    "noResultsTitle": "No se encontraron juegos",
+    "noResultsDesc": "Intenta ajustar tus filtros o tu búsqueda.",
+    "readGuide": "Leer guía",
+    "guide": "Guía →"
+  },
+  "filters": {
+    "type": "Tipo",
+    "level": "Nivel",
+    "players": "Jugadores",
+    "clearFilters": "Borrar filtros"
+  },
+  "difficulty": {
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado",
+    "expert": "Experto"
+  },
+  "categories": {
+    "board-game": {
+      "name": "Juegos de Mesa",
+      "description": "Juegos clásicos y modernos jugados en un tablero"
+    },
+    "card-game": {
+      "name": "Juegos de Cartas",
+      "description": "Juegos centrados en barajas de cartas"
+    },
+    "roleplaying": {
+      "name": "RPGs",
+      "description": "Narrativa colaborativa y aventura"
+    },
+    "dice-game": {
+      "name": "Juegos de Dados",
+      "description": "Juegos impulsados por tiradas de dados y probabilidad"
+    },
+    "tile-game": {
+      "name": "Juegos de Fichas",
+      "description": "Construye y explora con fichas modulares"
+    },
+    "party-game": {
+      "name": "Juegos de Fiesta",
+      "description": "Diversión energética para grupos"
+    },
+    "miniatures": {
+      "name": "Miniaturas",
+      "description": "Juegos tácticos con figuras de miniaturas pintadas"
+    },
+    "puzzle": {
+      "name": "Puzzles",
+      "description": "Desafíos cooperativos de resolución de problemas"
+    }
+  },
+  "categoryLabels": {
+    "board-game": "Juego de Mesa",
+    "card-game": "Juego de Cartas",
+    "roleplaying": "Juego de Rol",
+    "dice-game": "Juego de Dados",
+    "tile-game": "Juego de Fichas",
+    "party-game": "Juego de Fiesta",
+    "miniatures": "Juego de Miniaturas",
+    "puzzle": "Puzzle"
+  },
+  "guide": {
+    "breadcrumbHome": "Inicio",
+    "breadcrumbGames": "Juegos",
+    "atAGlance": "De un Vistazo",
+    "players": "Jugadores",
+    "playTime": "Duración",
+    "age": "Edad",
+    "year": "Año",
+    "objective": "Objetivo",
+    "quickRulesTitle": "Reglas de Referencia Rápida",
+    "expand": "Expandir",
+    "collapse": "Colapsar",
+    "inThisGuide": "En esta guía",
+    "whatsInTheBox": "Contenido de la Caja",
+    "optional": "opc.",
+    "tipsAndStrategy": "Consejos y Estrategia",
+    "variantsAndExpansions": "Variantes y Expansiones",
+    "youMightAlsoLike": "También te podría gustar",
+    "browseAllGames": "Ver todos los juegos"
+  },
+  "tipCategories": {
+    "strategy": "Estrategia",
+    "etiquette": "Etiqueta",
+    "beginner": "Principiante",
+    "advanced": "Avanzado"
+  },
+  "categoryPage": {
+    "noGuidesTitle": "Aún no hay guías",
+    "noGuidesDesc": "Estamos trabajando en añadir guías.",
+    "browseAll": "Ver todos los juegos",
+    "guideCount": "guía en",
+    "guideCountPlural": "guías en"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La guía del juego que buscas no existe — todavía. Intenta explorar nuestra colección.",
+    "cta": "Ver todos los juegos"
+  },
+  "utils": {
+    "min": "min",
+    "hours": "h",
+    "players": "jugadores",
+    "best": "ideal"
+  },
+  "locale": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}

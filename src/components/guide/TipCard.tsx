@@ -1,8 +1,10 @@
 import type { Tip } from "@/types/game";
 import { Lightbulb, Trophy, Smile, Handshake } from "lucide-react";
+import type { Dictionary } from "@/i18n/TranslationProvider";
 
 interface TipCardProps {
   tip: Tip;
+  tipCategories: Dictionary["tipCategories"];
 }
 
 const tipStyles = {
@@ -12,9 +14,10 @@ const tipStyles = {
   etiquette: { bg: "rgba(255, 209, 102, 0.08)", border: "rgba(255, 209, 102, 0.25)", color: "#ffd166", Icon: Handshake },
 };
 
-export default function TipCard({ tip }: TipCardProps) {
+export default function TipCard({ tip, tipCategories }: TipCardProps) {
   const style = tipStyles[tip.category];
   const { Icon } = style;
+  const categoryLabel = tipCategories[tip.category];
 
   return (
     <div
@@ -24,7 +27,7 @@ export default function TipCard({ tip }: TipCardProps) {
       <div className="mb-2 flex items-center gap-2">
         <Icon className="h-4 w-4 shrink-0" style={{ color: style.color }} />
         <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: style.color }}>
-          {tip.category}
+          {categoryLabel}
         </span>
       </div>
       <h4 className="mb-1 font-semibold text-text-primary">{tip.title}</h4>
