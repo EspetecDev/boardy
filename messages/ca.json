@@ -1,0 +1,177 @@
+{
+  "nav": {
+    "browseGames": "Veure Jocs",
+    "boardGames": "Jocs de Taula",
+    "cardGames": "Jocs de Cartes",
+    "rpgs": "RPGs",
+    "exploreAll": "Explorar Tot",
+    "toggleMenu": "Obrir menú"
+  },
+  "footer": {
+    "tagline": "Guies boniques i pràctiques per a tots els jocs de taula — de la primera configuració a l'estratègia guanyadora.",
+    "madeWith": "Fet amb",
+    "forTabletopLovers": "per als amants dels jocs de taula",
+    "allRightsReserved": "Tots els drets reservats.",
+    "sectionGames": "Jocs",
+    "sectionGuides": "Guies"
+  },
+  "home": {
+    "hero": {
+      "badge": "6 jocs, explicats de manera bonica",
+      "headline1": "Aprèn qualsevol joc de taula",
+      "headline2": "en minuts.",
+      "description": "Guies boniques i pràctiques per a jocs de taula, cartes i RPGs. Regles pas a pas amb diagrames visuals — llest per jugar aquesta nit.",
+      "cta": "Veure Tots els Jocs",
+      "ctaChess": "♔ Comença amb els Escacs"
+    },
+    "stats": {
+      "gameGuides": "Guies de Jocs",
+      "gameTypes": "Tipus de Jocs",
+      "playerCounts": "Nombre de Jugadors",
+      "skillLevels": "Nivells"
+    },
+    "categories": {
+      "title": "Explorar per Tipus",
+      "subtitle": "Troba el joc perfecte per al teu grup"
+    },
+    "featured": {
+      "badge": "Destacat",
+      "title": "Selecció de l'Editor",
+      "subtitle": "Jocs populars amb guies detallades pas a pas"
+    },
+    "howItWorks": {
+      "title": "Com Funciona Boardy",
+      "step1Title": "Troba el teu joc",
+      "step1Desc": "Cerca per tipus, dificultat o nombre de jugadors. Busca qualsevol joc que vulguis aprendre.",
+      "step2Title": "Llegeix la guia",
+      "step2Desc": "Diagrames visuals, configuració pas a pas i explicacions clares de les regles — tot en un sol lloc.",
+      "step3Title": "Juga aquesta nit",
+      "step3Desc": "Amb una referència ràpida i consells professionals, estaràs llest per jugar la teva primera partida en minuts.",
+      "stepLabel": "Pas"
+    },
+    "moreGames": {
+      "title": "Més Jocs",
+      "subtitle": "Explora la biblioteca completa de guies"
+    }
+  },
+  "games": {
+    "title": "Tots els Jocs",
+    "subtitle": "guies — troba el joc perfecte per al teu grup",
+    "searchPlaceholder": "Cercar jocs...",
+    "resultCount": "joc",
+    "resultCountPlural": "jocs",
+    "noResultsTitle": "No s'han trobat jocs",
+    "noResultsDesc": "Prova d'ajustar els teus filtres o la teva cerca.",
+    "readGuide": "Llegir guia",
+    "guide": "Guia →"
+  },
+  "filters": {
+    "type": "Tipus",
+    "level": "Nivell",
+    "players": "Jugadors",
+    "clearFilters": "Esborrar filtres"
+  },
+  "difficulty": {
+    "beginner": "Principiant",
+    "intermediate": "Intermedi",
+    "advanced": "Avançat",
+    "expert": "Expert"
+  },
+  "categories": {
+    "board-game": {
+      "name": "Jocs de Taula",
+      "description": "Jocs clàssics i moderns jugats en un tauler"
+    },
+    "card-game": {
+      "name": "Jocs de Cartes",
+      "description": "Jocs centrats en baralles de cartes"
+    },
+    "roleplaying": {
+      "name": "RPGs",
+      "description": "Narrativa col·laborativa i aventura"
+    },
+    "dice-game": {
+      "name": "Jocs de Daus",
+      "description": "Jocs basats en tirades de daus i probabilitat"
+    },
+    "tile-game": {
+      "name": "Jocs de Fitxes",
+      "description": "Construeix i explora amb fitxes modulars"
+    },
+    "party-game": {
+      "name": "Jocs de Festa",
+      "description": "Diversió enèrgica per a grups"
+    },
+    "miniatures": {
+      "name": "Miniatures",
+      "description": "Jocs tàctics amb figures de miniatures pintades"
+    },
+    "puzzle": {
+      "name": "Puzzles",
+      "description": "Reptes cooperatius de resolució de problemes"
+    }
+  },
+  "categoryLabels": {
+    "board-game": "Joc de Taula",
+    "card-game": "Joc de Cartes",
+    "roleplaying": "Joc de Rol",
+    "dice-game": "Joc de Daus",
+    "tile-game": "Joc de Fitxes",
+    "party-game": "Joc de Festa",
+    "miniatures": "Joc de Miniatures",
+    "puzzle": "Puzzle"
+  },
+  "guide": {
+    "breadcrumbHome": "Inici",
+    "breadcrumbGames": "Jocs",
+    "atAGlance": "En Resum",
+    "players": "Jugadors",
+    "playTime": "Durada",
+    "age": "Edat",
+    "year": "Any",
+    "objective": "Objectiu",
+    "quickRulesTitle": "Regles de Referència Ràpida",
+    "expand": "Expandir",
+    "collapse": "Col·lapsar",
+    "inThisGuide": "En aquesta guia",
+    "whatsInTheBox": "Contingut de la Caixa",
+    "optional": "opc.",
+    "tipsAndStrategy": "Consells i Estratègia",
+    "variantsAndExpansions": "Variants i Expansions",
+    "youMightAlsoLike": "També et podria agradar",
+    "browseAllGames": "Veure tots els jocs"
+  },
+  "tipCategories": {
+    "strategy": "Estratègia",
+    "etiquette": "Etiqueta",
+    "beginner": "Principiant",
+    "advanced": "Avançat"
+  },
+  "categoryPage": {
+    "noGuidesTitle": "Encara no hi ha guies",
+    "noGuidesDesc": "Estem treballant per afegir guies.",
+    "browseAll": "Veure tots els jocs",
+    "guideCount": "guia a",
+    "guideCountPlural": "guies a"
+  },
+  "notFound": {
+    "title": "Pàgina no trobada",
+    "description": "La guia del joc que busques no existeix — encara. Prova d'explorar la nostra col·lecció.",
+    "cta": "Veure tots els jocs"
+  },
+  "utils": {
+    "min": "min",
+    "hours": "h",
+    "players": "jugadors",
+    "best": "ideal"
+  },
+  "locale": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "pt": "Português",
+    "ca": "Català",
+    "ru": "Русский"
+  }
+}
